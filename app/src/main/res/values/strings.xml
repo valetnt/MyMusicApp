@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My Music App</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_account">Account</string>
+    <string name="navigation_drawer_myLibrary">My Library</string>
+    <string name="navigation_drawer_myPlaylists">My Playlists</string>
+    <string name="navigation_drawer_store">Music Store</string>
+    <string name="navigation_drawer_settings">Settings</string>
+    <string name="navigation_drawer_signout">Sign Out</string>
+
+    <string name="action_action1">Action 1</string>
+    <string name="action_action2">Action 2</string>
+    <string name="action_action3">Action 3</string>
+
+    <string name="account_details_name">John Smith</string>
+    <string name="account_details_email">john.smith@gmail.com</string>
+    <string name="avatar_img_content_description">avatar</string>
+
+
+</resources>
