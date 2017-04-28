@@ -5,5 +5,13 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
     <dimen name="nav_header_avatar_img_dim">72dp</dimen>
+    <dimen name="scrollView_margin">16dp</dimen>
+    <dimen name="small_item_container_padding">8dp</dimen>
+    <dimen name="small_item_padding">4dp</dimen>
+    <dimen name="small_item_dim">140dp</dimen>
+    <dimen name="thumbnails_dim">72dp</dimen>
+    <dimen name="headers_padding">16dp</dimen>
+    <dimen name="scrollableSections_padding">18dp</dimen>
 </resources>

@@ -16,7 +16,10 @@
 
     <string name="account_details_name">John Smith</string>
     <string name="account_details_email">john.smith@gmail.com</string>
-    <string name="avatar_img_content_description">avatar</string>
+    <string name="avatar_img_content_description">user profile avatar</string>
 
-
+    <string name="suggested4U_HeaderTextView">Suggested For You</string>
+    <string name="most_popular_HeaderTextView">Most Popular</string>
+    <string name="recently_added_HeaderTextView">Recently Added To Your Library</string>
+    <string name="thumbnail_img_content_description">album cover thumbnail</string>
 </resources>

@@ -3,6 +3,10 @@ package com.example.android.mymusicapp;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +16,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +39,44 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        RecyclerView recyclerView_suggestedItems = (RecyclerView) findViewById(R.id.suggested4u);
+        ItemData suggestedItems[] = {
+                new ItemData("Veckatimest", "Grizzly Bear", R.drawable.grizzly_bear_veckatimest),
+                new ItemData("Rumours", "Fleetwood Mac", R.drawable.fleetwood_mac_rumours),
+                new ItemData("Aladdin Sane", "David Bowie", R.drawable.david_bowie_aladdin_sane),
+                new ItemData("Come Away With Me", "Norah Jones", R.drawable.norah_jones_come_away_with_me)
+        };
+
+        RecyclerView recyclerView_mostPopularItems = (RecyclerView) findViewById(R.id.most_popular);
+        ItemData mostPopularItems[] = {
+                new ItemData("25", "Adele", R.drawable.adele_25),
+                new ItemData("Divide", "Ed Sheeran", R.drawable.ed_sheeran_divide),
+                new ItemData("St. Vincent", "St. Vincent", R.drawable.st_vincent_self_titled),
+                new ItemData("Born To Die", "Lana Del Rey", R.drawable.lana_del_rey_born_to_die)
+        };
+
+        RecyclerView recyclerView_recentlyAddedItems = (RecyclerView) findViewById(R.id.recently_added);
+        ItemData recentlyAddedItems[] = {
+                new ItemData("Back To Black", "Amy Winehouse", R.drawable.amy_winehouse_back_to_black),
+                new ItemData("Shields", "Grizzly Bear", R.drawable.grizzly_bear_shields)
+        };
+
+        recyclerView_suggestedItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView_suggestedItems.setHasFixedSize(true);
+        recyclerView_suggestedItems.setAdapter(new MyAdapter(suggestedItems));
+        recyclerView_suggestedItems.setItemAnimator(new DefaultItemAnimator());
+
+        recyclerView_mostPopularItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView_mostPopularItems.setHasFixedSize(true);
+        recyclerView_mostPopularItems.setAdapter(new MyAdapter(mostPopularItems));
+        recyclerView_mostPopularItems.setItemAnimator(new DefaultItemAnimator());
+
+        recyclerView_recentlyAddedItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView_recentlyAddedItems.setHasFixedSize(true);
+        recyclerView_recentlyAddedItems.setAdapter(new MyAdapter(recentlyAddedItems));
+        recyclerView_recentlyAddedItems.setItemAnimator(new DefaultItemAnimator());
+
     }
 
     @Override
