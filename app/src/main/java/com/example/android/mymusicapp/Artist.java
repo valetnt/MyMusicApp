@@ -38,7 +38,7 @@ public class Artist extends AppCompatActivity {
         recyclerView_artistAlbums.setHasFixedSize(true);
         recyclerView_artistAlbums.addItemDecoration(new LibraryItemsDividerDecoration(this));
         recyclerView_artistAlbums.setItemAnimator(new DefaultItemAnimator());
-        recyclerView_artistAlbums.setAdapter(new LibraryItemsAlbumsAdapter(selectedArtistAlbums));
+        recyclerView_artistAlbums.setAdapter(new LibraryItemsAlbumsAdapter(selectedArtistAlbums, this));
 
     }
 

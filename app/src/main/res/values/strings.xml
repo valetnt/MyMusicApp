@@ -33,5 +33,6 @@
     <string name="unknown">Unknown</string>
 
     <string name="title_activity_artist">Artist</string>
+    <string name="title_activity_album">Album</string>
 
 </resources>

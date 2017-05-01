@@ -187,7 +187,7 @@ public class MyLibrary extends AppCompatActivity {
                     RecyclerView recyclerView_albums = (RecyclerView) rootView2.findViewById(R.id.mylibrary_list_item);
                     recyclerView_albums.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
-                    recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter(AlbumsList));
+                    recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter(AlbumsList, getContext()));
                     recyclerView_albums.setHasFixedSize(true);
                     recyclerView_albums.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
                     recyclerView_albums.setItemAnimator(new DefaultItemAnimator());

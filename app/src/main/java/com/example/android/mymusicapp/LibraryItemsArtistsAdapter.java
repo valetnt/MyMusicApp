@@ -28,8 +28,7 @@ public class LibraryItemsArtistsAdapter
     static final String EXTRA_ARTIST = "com.example.android.mymusicapp.EXTRA_ARTIST";
     static final String EXTRA_ALBUMLIST = "com.example.android.mymusicapp.EXTRA_ALBUMLIST";
 
-    public LibraryItemsArtistsAdapter(ArrayList<String> ArtistsList,
-                                      Context context) {
+    public LibraryItemsArtistsAdapter(ArrayList<String> ArtistsList, Context context) {
         this.ArtistsList = ArtistsList;
         this.context = context;
     }

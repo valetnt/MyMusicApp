@@ -1,5 +1,7 @@
 package com.example.android.mymusicapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,16 +10,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
+import static com.example.android.mymusicapp.LibraryItemsArtistsAdapter.EXTRA_ARTIST;
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
 
 public class LibraryItemsAlbumsAdapter
         extends RecyclerView.Adapter<LibraryItemsAlbumsAdapter.ViewHolder> {
     
     private ArrayList<String> AlbumsList;
+    private Context context;
+    static final String EXTRA_ALBUM = "com.example.android.mymusicapp.EXTRA_ALBUM";
+    static final String EXTRA_SONGLIST = "com.example.android.mymusicapp.EXTRA_SONGLIST";
 
-    public LibraryItemsAlbumsAdapter(ArrayList<String> AlbumsList) {
+
+    public LibraryItemsAlbumsAdapter(ArrayList<String> AlbumsList, Context context) {
         this.AlbumsList = AlbumsList;
+        this.context = context;
     }
 
     // Create new views (invoked by the layout manager)
@@ -34,12 +44,11 @@ public class LibraryItemsAlbumsAdapter
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(final ViewHolder viewHolder, int position) {
 
         viewHolder.txtViewAlbum.setText(AlbumsList.get(position));
 
         int i = 0;
-
 
         while (i < libraryItems.length) {
 
@@ -55,6 +64,38 @@ public class LibraryItemsAlbumsAdapter
                 break;
             }
         }
+
+        final ArrayList<String> songList = new ArrayList<>();
+        final int numberOfItems = libraryItems.length;
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            String albumArtist;
+
+            @Override
+            public void onClick (View view){
+                for (int j = 0; j < numberOfItems; j++) {
+
+                    if(libraryItems[j].getAlbumTitle().equals(String.valueOf(viewHolder.txtViewAlbum.getText()))) {
+                        songList.add(libraryItems[j].getSongTitle());
+                        albumArtist=libraryItems[j].getArtistName();
+                    }
+                }
+
+                Collections.sort(songList, new Comparator<String>() {
+                    @Override
+                    public int compare(String o1, String o2) {
+                        return o1.compareToIgnoreCase(o2);
+                    }
+                });
+
+                Intent browseAlbumSongs = new Intent(view.getContext(), Album.class);
+                browseAlbumSongs.putExtra(EXTRA_ALBUM, String.valueOf(viewHolder.txtViewAlbum.getText()));
+                browseAlbumSongs.putExtra(EXTRA_SONGLIST, songList);
+                browseAlbumSongs.putExtra(EXTRA_ARTIST, albumArtist);
+                context.startActivity(browseAlbumSongs);
+            }
+        });
 
     }
 
