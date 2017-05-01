@@ -32,22 +32,25 @@
     <style name="ContentHeader" parent="AppTheme">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
     <style name="SmallItemsArtist" parent="AppTheme">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="SmallItemsAlbumTitle" parent="AppTheme">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="LibraryItems" parent="AppTheme">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

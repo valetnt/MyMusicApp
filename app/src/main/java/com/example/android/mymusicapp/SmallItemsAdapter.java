@@ -5,30 +5,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
  * Adapted from http://hmkcode.com/android-simple-recyclerview-widget-example/
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class SmallItemsAdapter extends RecyclerView.Adapter<SmallItemsAdapter.ViewHolder> {
 
-    private ItemData[] itemsData;
+    private SmallItemsData[] itemsData;
 
-    public MyAdapter(ItemData[] itemsData) {
+    public SmallItemsAdapter(SmallItemsData[] itemsData) {
         this.itemsData = itemsData;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public SmallItemsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View itemLayoutView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.small_items, null);
 
         // create ViewHolder
-
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);
         return viewHolder;
     }

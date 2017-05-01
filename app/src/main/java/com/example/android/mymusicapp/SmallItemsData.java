@@ -4,13 +4,13 @@ package com.example.android.mymusicapp;
  * Adapted from http://hmkcode.com/android-simple-recyclerview-widget-example/
  */
 
-public class ItemData {
+public class SmallItemsData {
 
     public String title;
     public String artist;
     public int imageID;
 
-    public ItemData(String title, String artist, int imageID){
+    public SmallItemsData(String title, String artist, int imageID){
 
         this.title = title;
         this.artist = artist;
