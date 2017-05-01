@@ -17,6 +17,19 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+     static final LibraryItemsData[] libraryItems = {
+            new LibraryItemsData("Tears Dry On Their Own", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("Love Is A Losing Game", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("Sleeping Ute", "Grizzly Bear",
+                    "Shields", R.drawable.grizzly_bear_shields),
+            new LibraryItemsData("All My Stars Aligned", "St. Vincent", "Marry Me", -1),
+            new LibraryItemsData("The Neighbors", "St. Vincent", "Actor", -1),
+            new LibraryItemsData("Save Me From What I Want", "St. Vincent", "Actor", -1)
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,9 @@
 package com.example.android.mymusicapp;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,16 +13,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
+
+import static com.example.android.mymusicapp.MainActivity.libraryItems;
 
 public class LibraryItemsArtistsAdapter
         extends RecyclerView.Adapter<LibraryItemsArtistsAdapter.ViewHolder> {
-
-    private LibraryItemsData[] itemsData;
+    
     private ArrayList<String> ArtistsList;
+    private Context context;
+    static final String EXTRA_ARTIST = "com.example.android.mymusicapp.EXTRA_ARTIST";
+    static final String EXTRA_ALBUMLIST = "com.example.android.mymusicapp.EXTRA_ALBUMLIST";
 
-    public LibraryItemsArtistsAdapter(LibraryItemsData[] itemsData, ArrayList<String> ArtistsList) {
-        this.itemsData = itemsData;
+    public LibraryItemsArtistsAdapter(ArrayList<String> ArtistsList,
+                                      Context context) {
         this.ArtistsList = ArtistsList;
+        this.context = context;
     }
 
     // Create new views (invoked by the layout manager)
@@ -35,31 +48,62 @@ public class LibraryItemsArtistsAdapter
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
-
-        // - get data from your itemsData at this position
-        // - replace the contents of the view with that itemsData
+    public void onBindViewHolder(final ViewHolder viewHolder, int position) {
 
         viewHolder.txtViewArtist.setText(ArtistsList.get(position));
 
         int i = 0;
 
-        while (i < itemsData.length) {
-            if (itemsData[i].getImageForArtist(ArtistsList.get(position)) == -1) {
+        while (i < libraryItems.length) {
+
+            if (libraryItems[i].getImageForArtist(ArtistsList.get(position)) == 0) {
+                viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
+                i++;
+            } else if (libraryItems[i].getImageForArtist(ArtistsList.get(position)) == -1) {
                 viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
                 break;
             }
-            else if (itemsData[i].getImageForArtist(ArtistsList.get(position)) == 0) {
-                viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
-                i++;
-            } else {
-                viewHolder.imgViewIcon.setImageResource(itemsData[i].getImageID());
+            else {
+                viewHolder.imgViewIcon.setImageResource(libraryItems[i].getImageID());
                 break;
             }
         }
+
+        final ArrayList<String> albumList = new ArrayList<>();
+        final int numberOfItems = libraryItems.length;
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick (View view){
+                for (int j = 0; j < numberOfItems; j++) {
+
+                    if(libraryItems[j].getArtistName().equals(String.valueOf(viewHolder.txtViewArtist.getText()))) {
+                        albumList.add(libraryItems[j].getAlbumTitle());
+                    }
+                }
+
+                Set<String> hsSongsList = new HashSet<>();
+                hsSongsList.addAll(albumList);
+                albumList.clear();
+                albumList.addAll(hsSongsList);
+
+                Collections.sort(albumList, new Comparator<String>() {
+                    @Override
+                    public int compare(String o1, String o2) {
+                        return o1.compareToIgnoreCase(o2);
+                    }
+                });
+
+                Intent browseArtistAlbums = new Intent(view.getContext(), Artist.class);
+                browseArtistAlbums.putExtra(EXTRA_ARTIST, String.valueOf(viewHolder.txtViewArtist.getText()));
+                browseArtistAlbums.putExtra(EXTRA_ALBUMLIST, albumList);
+                context.startActivity(browseArtistAlbums);
+            }
+        });
     }
 
-    // Return the size of your itemsData (invoked by the layout manager)
+    // Return the size of your libraryItems (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return ArtistsList.size();

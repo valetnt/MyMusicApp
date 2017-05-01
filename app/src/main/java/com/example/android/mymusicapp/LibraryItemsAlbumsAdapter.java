@@ -9,14 +9,14 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static com.example.android.mymusicapp.MainActivity.libraryItems;
+
 public class LibraryItemsAlbumsAdapter
         extends RecyclerView.Adapter<LibraryItemsAlbumsAdapter.ViewHolder> {
-
-    private LibraryItemsData[] itemsData;
+    
     private ArrayList<String> AlbumsList;
 
-    public LibraryItemsAlbumsAdapter(LibraryItemsData[] itemsData, ArrayList<String> AlbumsList) {
-        this.itemsData = itemsData;
+    public LibraryItemsAlbumsAdapter(ArrayList<String> AlbumsList) {
         this.AlbumsList = AlbumsList;
     }
 
@@ -36,29 +36,29 @@ public class LibraryItemsAlbumsAdapter
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
-        // - get data from your itemsData at this position
-        // - replace the contents of the view with that itemsData
-
         viewHolder.txtViewAlbum.setText(AlbumsList.get(position));
 
         int i = 0;
 
-        while (i < itemsData.length) {
-            if (itemsData[i].getImageForAlbum(AlbumsList.get(position)) == -1) {
+
+        while (i < libraryItems.length) {
+
+            if (libraryItems[i].getImageForAlbum(AlbumsList.get(position)) == 0) {
+                viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
+                i++;
+            } else if (libraryItems[i].getImageForAlbum(AlbumsList.get(position)) == -1) {
                 viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
                 break;
             }
-            else if (itemsData[i].getImageForAlbum(AlbumsList.get(position)) == 0) {
-                viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
-                i++;
-            } else {
-                viewHolder.imgViewIcon.setImageResource(itemsData[i].getImageID());
+            else {
+                viewHolder.imgViewIcon.setImageResource(libraryItems[i].getImageID());
                 break;
             }
         }
+
     }
 
-    // Return the size of your itemsData (invoked by the layout manager)
+    // Return the size of your libraryItems (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return AlbumsList.size();

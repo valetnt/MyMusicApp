@@ -17,5 +17,8 @@
 
     <dimen name="library_thumb_dim">52dp</dimen>
     <dimen name="library_thumb_padding">8dp</dimen>
+    <dimen name="library_textView_width">300dp</dimen>
+
+
 
 </resources>

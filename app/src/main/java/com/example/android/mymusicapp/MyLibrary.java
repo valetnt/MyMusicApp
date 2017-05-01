@@ -28,6 +28,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static android.R.attr.fragment;
+import static com.example.android.mymusicapp.MainActivity.libraryItems;
 import static com.example.android.mymusicapp.MyLibrary.PlaceholderFragment.ARG_SECTION_NUMBER;
 
 
@@ -129,18 +130,6 @@ public class MyLibrary extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
-            LibraryItemsData libraryItems[] = {
-                    new LibraryItemsData("Tears Dry On Their Own", "Amy Winehouse",
-                            "Back To Black", R.drawable.amy_winehouse_back_to_black),
-                    new LibraryItemsData("Love Is A Losing Game", "Amy Winehouse",
-                            "Back To Black", R.drawable.amy_winehouse_back_to_black),
-                    new LibraryItemsData("Sleeping Ute", "Grizzly Bear",
-                            "Shields", R.drawable.grizzly_bear_shields),
-                    new LibraryItemsData("All My Stars Aligned", "St. Vincent", "Marry Me", -1),
-                    new LibraryItemsData("The Neighbors", "St. Vincent", "Actor", -1),
-                    new LibraryItemsData("Save Me From What I Want", "St. Vincent", "Actor", -1)
-            };
-
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
 
                 case 1:
@@ -167,7 +156,7 @@ public class MyLibrary extends AppCompatActivity {
                     RecyclerView recyclerView_artists = (RecyclerView) rootView1.findViewById(R.id.mylibrary_list_item);
                     recyclerView_artists.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
-                    recyclerView_artists.setAdapter(new LibraryItemsArtistsAdapter(libraryItems, ArtistsList));
+                    recyclerView_artists.setAdapter(new LibraryItemsArtistsAdapter(ArtistsList, getContext()));
                     recyclerView_artists.setHasFixedSize(true);
                     recyclerView_artists.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
                     recyclerView_artists.setItemAnimator(new DefaultItemAnimator());
@@ -198,7 +187,7 @@ public class MyLibrary extends AppCompatActivity {
                     RecyclerView recyclerView_albums = (RecyclerView) rootView2.findViewById(R.id.mylibrary_list_item);
                     recyclerView_albums.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
-                    recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter(libraryItems, AlbumsList));
+                    recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter(AlbumsList));
                     recyclerView_albums.setHasFixedSize(true);
                     recyclerView_albums.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
                     recyclerView_albums.setItemAnimator(new DefaultItemAnimator());
@@ -229,7 +218,7 @@ public class MyLibrary extends AppCompatActivity {
                     RecyclerView recyclerView_Songs = (RecyclerView) rootView3.findViewById(R.id.mylibrary_list_item);
                     recyclerView_Songs.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
-                    recyclerView_Songs.setAdapter(new LibraryItemsSongsAdapter(libraryItems, SongsList));
+                    recyclerView_Songs.setAdapter(new LibraryItemsSongsAdapter(SongsList));
                     recyclerView_Songs.setHasFixedSize(true);
                     recyclerView_Songs.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
                     recyclerView_Songs.setItemAnimator(new DefaultItemAnimator());

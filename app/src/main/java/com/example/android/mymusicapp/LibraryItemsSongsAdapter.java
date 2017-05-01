@@ -9,14 +9,14 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static com.example.android.mymusicapp.MainActivity.libraryItems;
+
 public class LibraryItemsSongsAdapter
         extends RecyclerView.Adapter<LibraryItemsSongsAdapter.ViewHolder> {
-
-    private LibraryItemsData[] itemsData;
+    
     private ArrayList<String> SongsList;
 
-    public LibraryItemsSongsAdapter(LibraryItemsData[] itemsData, ArrayList<String> SongsList) {
-        this.itemsData = itemsData;
+    public LibraryItemsSongsAdapter(ArrayList<String> SongsList) {
         this.SongsList = SongsList;
     }
 
@@ -36,29 +36,26 @@ public class LibraryItemsSongsAdapter
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
-        // - get data from your itemsData at this position
-        // - replace the contents of the view with that itemsData
-
         viewHolder.txtViewSong.setText(SongsList.get(position));
 
         int i = 0;
 
-        while (i < itemsData.length) {
-            if (itemsData[i].getImageForSong(SongsList.get(position)) == -1) {
+        while (i < libraryItems.length) {
+            if (libraryItems[i].getImageForSong(SongsList.get(position)) == -1) {
                 viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
                 break;
             }
-            else if (itemsData[i].getImageForSong(SongsList.get(position)) == 0) {
+            else if (libraryItems[i].getImageForSong(SongsList.get(position)) == 0) {
                 viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
                 i++;
             } else {
-                viewHolder.imgViewIcon.setImageResource(itemsData[i].getImageID());
+                viewHolder.imgViewIcon.setImageResource(libraryItems[i].getImageID());
                 break;
             }
         }
     }
 
-    // Return the size of your itemsData (invoked by the layout manager)
+    // Return the size of your libraryItems (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return SongsList.size();
