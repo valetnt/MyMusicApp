@@ -29,10 +29,27 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="MainScrollView">
+        <item name="android:scrollbarThumbVertical">@android:color/darker_gray</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarSize">@dimen/scrollBarSize</item>
+        <item name="android:scrollbarStyle">outsideInset</item>
+        <item name="android:fadeScrollbars">false</item>
+    </style>
+
     <style name="ContentHeader" parent="AppTheme">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="SmallItemsRecyclerView" parent="AppTheme">
+        <item name="android:scrollbarThumbHorizontal">@android:color/darker_gray</item>
+        <item name="android:scrollbarAlwaysDrawHorizontalTrack">true</item>
+        <item name="android:scrollbarSize">@dimen/scrollBarSize</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+        <item name="android:background">@color/darkerBackground</item>
+        <item name="android:fadeScrollbars">false</item>
     </style>
 
     <style name="SmallItemsArtist" parent="AppTheme">
@@ -50,7 +67,7 @@
     <style name="LibraryItems" parent="AppTheme">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">22sp</item>
-        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/veryDarkGray</item>
     </style>
 
 </resources>

@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.mymusicapp.MyLibrary$PlaceholderFragment">
-    
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mylibrary_list_item"
         android:layout_width="match_parent"

@@ -11,7 +11,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/scrollView_margin">
+        android:scrollbars="vertical"
+        style="@style/MainScrollView"
+        android:padding="@dimen/scrollView_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,7 +38,8 @@
                     android:id="@+id/suggested4u"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/darkerBackground">
+                    android:scrollbars="horizontal"
+                    style="@style/SmallItemsRecyclerView">
 
                 </android.support.v7.widget.RecyclerView>
 
@@ -60,7 +63,8 @@
                     android:id="@+id/most_popular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/darkerBackground">
+                    android:scrollbars="horizontal"
+                    style="@style/SmallItemsRecyclerView">
 
                 </android.support.v7.widget.RecyclerView>
 
@@ -84,7 +88,8 @@
                     android:id="@+id/recently_added"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/darkerBackground">
+                    android:scrollbars="horizontal"
+                    style="@style/SmallItemsRecyclerView">
 
                 </android.support.v7.widget.RecyclerView>
 

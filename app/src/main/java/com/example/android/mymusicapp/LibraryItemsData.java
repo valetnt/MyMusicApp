@@ -1,5 +1,6 @@
 package com.example.android.mymusicapp;
 
+
 public class LibraryItemsData {
 
     private String songTitle;
@@ -31,8 +32,19 @@ public class LibraryItemsData {
     }
 
     public int getImageForArtist (String name) {
-        if (name.equals(artistName)) {return imageID;}
-        else {return 0;}
+        if (name.equals(artistName)) {
+            return imageID;
+        } else { return 0; }
+    }
+
+    public int getImageForAlbum (String title) {
+        if (title.equals(albumTitle)) { return imageID; }
+        else { return 0; }
+    }
+
+    public int getImageForSong (String title) {
+        if (title.equals(songTitle)) { return imageID; }
+        else { return 0; }
     }
 
 }

@@ -22,8 +22,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
+
+import static android.R.attr.fragment;
+import static com.example.android.mymusicapp.MyLibrary.PlaceholderFragment.ARG_SECTION_NUMBER;
 
 
 public class MyLibrary extends AppCompatActivity {
@@ -62,6 +67,10 @@ public class MyLibrary extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+        /*if(savedInstanceState==null){
+            PlaceholderFragment.newInstance(1);
+        }*/
+
     }
 
 
@@ -99,7 +108,7 @@ public class MyLibrary extends AppCompatActivity {
          * The fragment argument representing the section number for this
          * fragment.
          */
-        private static final String ARG_SECTION_NUMBER = "section_number";
+        public static final String ARG_SECTION_NUMBER = "section_number";
 
         public PlaceholderFragment() {
         }
@@ -119,7 +128,6 @@ public class MyLibrary extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_my_library, container, false);
 
             LibraryItemsData libraryItems[] = {
                     new LibraryItemsData("Tears Dry On Their Own", "Amy Winehouse",
@@ -133,26 +141,105 @@ public class MyLibrary extends AppCompatActivity {
                     new LibraryItemsData("Save Me From What I Want", "St. Vincent", "Actor", -1)
             };
 
-            ArrayList<String> ArtistsList = new ArrayList<>();
-            for (int i=0; i<libraryItems.length; i++) {
-                ArtistsList.add(libraryItems[i].getArtistName());
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+
+                case 1:
+
+                    View rootView1 = inflater.inflate(R.layout.fragment_my_library, container, false);
+
+                    ArrayList<String> ArtistsList = new ArrayList<>();
+                    for (int i = 0; i < libraryItems.length; i++) {
+                        ArtistsList.add(libraryItems[i].getArtistName());
+                    }
+
+                    Set<String> hsArtistsList = new HashSet<>();
+                    hsArtistsList.addAll(ArtistsList);
+                    ArtistsList.clear();
+                    ArtistsList.addAll(hsArtistsList);
+
+                    Collections.sort(ArtistsList, new Comparator<String>() {
+                        @Override
+                        public int compare(String o1, String o2) {
+                            return o1.compareToIgnoreCase(o2);
+                        }
+                    });
+
+                    RecyclerView recyclerView_artists = (RecyclerView) rootView1.findViewById(R.id.mylibrary_list_item);
+                    recyclerView_artists.setLayoutManager(new LinearLayoutManager(getContext(),
+                            LinearLayoutManager.VERTICAL, false));
+                    recyclerView_artists.setAdapter(new LibraryItemsArtistsAdapter(libraryItems, ArtistsList));
+                    recyclerView_artists.setHasFixedSize(true);
+                    recyclerView_artists.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
+                    recyclerView_artists.setItemAnimator(new DefaultItemAnimator());
+
+                    return rootView1;
+
+                case 2:
+
+                    View rootView2 = inflater.inflate(R.layout.fragment_my_library, container, false);
+
+                    ArrayList<String> AlbumsList = new ArrayList<>();
+                    for (int i = 0; i < libraryItems.length; i++) {
+                        AlbumsList.add(libraryItems[i].getAlbumTitle());
+                    }
+
+                    Set<String> hsAlbumsList = new HashSet<>();
+                    hsAlbumsList.addAll(AlbumsList);
+                    AlbumsList.clear();
+                    AlbumsList.addAll(hsAlbumsList);
+
+                    Collections.sort(AlbumsList, new Comparator<String>() {
+                        @Override
+                        public int compare(String o1, String o2) {
+                            return o1.compareToIgnoreCase(o2);
+                        }
+                    });
+
+                    RecyclerView recyclerView_albums = (RecyclerView) rootView2.findViewById(R.id.mylibrary_list_item);
+                    recyclerView_albums.setLayoutManager(new LinearLayoutManager(getContext(),
+                            LinearLayoutManager.VERTICAL, false));
+                    recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter(libraryItems, AlbumsList));
+                    recyclerView_albums.setHasFixedSize(true);
+                    recyclerView_albums.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
+                    recyclerView_albums.setItemAnimator(new DefaultItemAnimator());
+
+                    return rootView2;
+
+                case 3:
+
+                    View rootView3 = inflater.inflate(R.layout.fragment_my_library, container, false);
+
+                    ArrayList<String> SongsList = new ArrayList<>();
+                    for (int i = 0; i < libraryItems.length; i++) {
+                        SongsList.add(libraryItems[i].getSongTitle());
+                    }
+
+                    Set<String> hsSongsList = new HashSet<>();
+                    hsSongsList.addAll(SongsList);
+                    SongsList.clear();
+                    SongsList.addAll(hsSongsList);
+
+                    Collections.sort(SongsList, new Comparator<String>() {
+                        @Override
+                        public int compare(String o1, String o2) {
+                            return o1.compareToIgnoreCase(o2);
+                        }
+                    });
+
+                    RecyclerView recyclerView_Songs = (RecyclerView) rootView3.findViewById(R.id.mylibrary_list_item);
+                    recyclerView_Songs.setLayoutManager(new LinearLayoutManager(getContext(),
+                            LinearLayoutManager.VERTICAL, false));
+                    recyclerView_Songs.setAdapter(new LibraryItemsSongsAdapter(libraryItems, SongsList));
+                    recyclerView_Songs.setHasFixedSize(true);
+                    recyclerView_Songs.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
+                    recyclerView_Songs.setItemAnimator(new DefaultItemAnimator());
+
+                    return rootView3;
+
+                default: return null;
             }
-
-            Set<String> hsArtistsList = new HashSet<>();
-            hsArtistsList.addAll(ArtistsList);
-            ArtistsList.clear();
-            ArtistsList.addAll(hsArtistsList);
-
-            RecyclerView recyclerView_artists = (RecyclerView) rootView.findViewById(R.id.mylibrary_list_item);
-            recyclerView_artists.setLayoutManager(new LinearLayoutManager(getContext(),
-                    LinearLayoutManager.VERTICAL, false));
-            recyclerView_artists.setAdapter(new LibraryItemsArtistsAdapter(libraryItems, ArtistsList));
-            recyclerView_artists.setHasFixedSize(true);
-            recyclerView_artists.setItemAnimator(new DefaultItemAnimator());
-            return rootView;
         }
     }
-
 
 
     /**
