@@ -25,10 +25,10 @@ public class Artist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_artist);
 
-        if( getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("MyLibrary") ) {
+        if( getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("library") ) {
             selectedArtistName = getIntent().getStringExtra(EXTRA_ARTIST);
             selectedArtistAlbums = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
-        } else if ( getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("AlbumFromArtist") ) {
+        } else if ( getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("artistalbum") ) {
             selectedArtistName = getIntent().getStringExtra(EXTRA_ARTIST);
             selectedArtistAlbums = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
         } else {
@@ -48,6 +48,6 @@ public class Artist extends AppCompatActivity {
         recyclerView_artistAlbums.setHasFixedSize(true);
         recyclerView_artistAlbums.addItemDecoration(new LibraryItemsDividerDecoration(this));
         recyclerView_artistAlbums.setItemAnimator(new DefaultItemAnimator());
-        recyclerView_artistAlbums.setAdapter(new LibraryItemsAlbumsAdapter(selectedArtistAlbums, this, "artistAlbum"));
+        recyclerView_artistAlbums.setAdapter(new LibraryItemsAlbumsAdapter(selectedArtistAlbums, this, "artistalbum"));
     }
 }

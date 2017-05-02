@@ -119,8 +119,6 @@ public class MainActivity extends AppCompatActivity
             return true;
         } else if (id == R.id.action_main2) {
             return true;
-        } else if (id == R.id.action_main3) {
-            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -132,7 +130,9 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_library) {
+        if (id == R.id.nav_home) {
+
+        } else if (id == R.id.nav_library) {
             Intent openMyLibrary = new Intent(this, MyLibrary.class);
             startActivity(openMyLibrary);
 

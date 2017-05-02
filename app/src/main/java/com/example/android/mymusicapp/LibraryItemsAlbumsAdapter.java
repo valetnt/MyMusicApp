@@ -102,7 +102,7 @@ public class LibraryItemsAlbumsAdapter
                     context.startActivity(browseAlbumSongs);
                 }
 
-                else if (activityID.equals("artistAlbum")) {
+                else if (activityID.equals("artistalbum")) {
                     Intent browseAlbumSongs = new Intent(view.getContext(), AlbumFromArtist.class);
                     browseAlbumSongs.putExtra(EXTRA_ALBUM, String.valueOf(viewHolder.txtViewAlbum.getText()));
                     browseAlbumSongs.putExtra(EXTRA_SONGLIST, songList);

@@ -55,6 +55,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.mymusicapp.MyLibrary" />
         </activity>
+        <activity
+            android:name=".PlaySingle"
+            android:label="@string/title_activity_play_single"
+            android:parentActivityName=".MyLibrary"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.mymusicapp.MyLibrary" />
+        </activity>
+        <activity
+            android:name=".PlayAlbumTrack"
+            android:label="@string/title_activity_play_album_track"
+            android:parentActivityName=".MyLibrary"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.mymusicapp.MyLibrary" />
+        </activity>
     </application>
 
 </manifest>

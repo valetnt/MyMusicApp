@@ -97,7 +97,7 @@ public class LibraryItemsArtistsAdapter
                 Intent browseArtistAlbums = new Intent(view.getContext(), Artist.class);
                 browseArtistAlbums.putExtra(EXTRA_ARTIST, String.valueOf(viewHolder.txtViewArtist.getText()));
                 browseArtistAlbums.putExtra(EXTRA_ALBUMLIST, albumList);
-                browseArtistAlbums.putExtra(EXTRA_WHOSCALLING,"MyLibrary");
+                browseArtistAlbums.putExtra(EXTRA_WHOSCALLING,"library");
                 context.startActivity(browseArtistAlbums);
             }
         });

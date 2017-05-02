@@ -49,7 +49,8 @@ public class AlbumFromArtist extends AppCompatActivity {
         recyclerView_albumSongs.setHasFixedSize(true);
         recyclerView_albumSongs.addItemDecoration(new LibraryItemsDividerDecoration(this));
         recyclerView_albumSongs.setItemAnimator(new DefaultItemAnimator());
-        recyclerView_albumSongs.setAdapter(new LibraryItemsSongsAdapter(selectedAlbumSongs, this));
+        recyclerView_albumSongs.setAdapter(new LibraryItemsSongsAdapter(selectedAlbumSongs,
+                albumListForArtist, selectedAlbumTitle, artist, this, "artistalbum"));
 
         (findViewById(R.id.back_button)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +58,7 @@ public class AlbumFromArtist extends AppCompatActivity {
                 Intent backToArtist = new Intent(v.getContext(), Artist.class);
                 backToArtist.putExtra(EXTRA_ARTIST, artist);
                 backToArtist.putExtra(EXTRA_ALBUMLIST,albumListForArtist);
-                backToArtist.putExtra(EXTRA_WHOSCALLING,"AlbumFromArtist");
+                backToArtist.putExtra(EXTRA_WHOSCALLING,"artistalbum");
                 startActivity(backToArtist);
             }
         });

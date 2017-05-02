@@ -42,7 +42,7 @@ public class Album extends AppCompatActivity {
         recyclerView_albumSongs.setHasFixedSize(true);
         recyclerView_albumSongs.addItemDecoration(new LibraryItemsDividerDecoration(this));
         recyclerView_albumSongs.setItemAnimator(new DefaultItemAnimator());
-        recyclerView_albumSongs.setAdapter(new LibraryItemsSongsAdapter(selectedAlbumSongs, this));
+        recyclerView_albumSongs.setAdapter(new LibraryItemsSongsAdapter(selectedAlbumSongs, null, selectedAlbumTitle, artist, this, "album"));
 
     }
 

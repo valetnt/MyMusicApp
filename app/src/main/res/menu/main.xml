@@ -13,9 +13,4 @@
         android:title="@string/action_main2"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_main3"
-        android:orderInCategory="100"
-        android:title="@string/action_main3"
-        app:showAsAction="never" />
 </menu>

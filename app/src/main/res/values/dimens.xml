@@ -21,6 +21,7 @@
 
     <dimen name="album_back_button_paddingTop">16dp</dimen>
     <dimen name="album_back_button_dim">62dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 
 </resources>

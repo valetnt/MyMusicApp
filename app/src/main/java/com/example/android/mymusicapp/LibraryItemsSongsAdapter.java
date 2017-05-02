@@ -1,6 +1,8 @@
 package com.example.android.mymusicapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,17 +12,31 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUM;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUMLIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_ARTIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_SONGLIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_WHOSCALLING;
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
 
 public class LibraryItemsSongsAdapter
         extends RecyclerView.Adapter<LibraryItemsSongsAdapter.ViewHolder> {
     
     private ArrayList<String> SongsList;
+    private ArrayList<String> AlbumsList;
     private Context context;
+    private String activityID;
+    private String Artist;
+    private String Album;
 
-    public LibraryItemsSongsAdapter(ArrayList<String> SongsList, Context context) {
+    public LibraryItemsSongsAdapter(ArrayList<String> SongsList, @Nullable ArrayList<String> AlbumsList,
+                                    @Nullable String Album, @Nullable String Artist, Context context, String identifier) {
         this.SongsList = SongsList;
+        this.AlbumsList = AlbumsList;
+        this.Album = Album;
+        this.Artist = Artist;
         this.context = context;
+        activityID = identifier;
     }
 
     // Create new views (invoked by the layout manager)
@@ -57,6 +73,35 @@ public class LibraryItemsSongsAdapter
             }
         }
 
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (activityID.equals("album")) {
+
+                    Intent playFromAlbum = new Intent(v.getContext(), PlayAlbumTrack.class);
+                    playFromAlbum.putExtra(EXTRA_ALBUM,Album);
+                    playFromAlbum.putExtra(EXTRA_SONGLIST,SongsList);
+                    playFromAlbum.putExtra(EXTRA_ARTIST,Artist);
+                    playFromAlbum.putExtra(EXTRA_WHOSCALLING,"album");
+                    v.getContext().startActivity(playFromAlbum);
+
+                } else if (activityID.equals("artistalbum")) {
+
+                    Intent playFromAlbum = new Intent(v.getContext(), PlayAlbumTrack.class);
+                    playFromAlbum.putExtra(EXTRA_ALBUM,Album);
+                    playFromAlbum.putExtra(EXTRA_SONGLIST,SongsList);
+                    playFromAlbum.putExtra(EXTRA_ARTIST,Artist);
+                    playFromAlbum.putExtra(EXTRA_ALBUMLIST,AlbumsList);
+                    playFromAlbum.putExtra(EXTRA_WHOSCALLING,"artistalbum");
+                    v.getContext().startActivity(playFromAlbum);
+
+                } else if (activityID.equals("library")) {
+
+                    Intent playFromSongList = new Intent(v.getContext(), PlaySingle.class);
+                    v.getContext().startActivity(playFromSongList);
+                }
+            }
+        });
 
 
     }
