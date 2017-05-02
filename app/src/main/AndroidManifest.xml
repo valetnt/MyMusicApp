@@ -46,6 +46,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.mymusicapp.MyLibrary" />
         </activity>
+        <activity
+            android:name=".AlbumFromArtist"
+            android:label="@string/title_activity_album_from_artist"
+            android:parentActivityName=".MyLibrary"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.mymusicapp.MyLibrary" />
+        </activity>
     </application>
 
 </manifest>

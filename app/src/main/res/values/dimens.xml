@@ -19,6 +19,8 @@
     <dimen name="library_thumb_padding">8dp</dimen>
     <dimen name="library_textView_width">300dp</dimen>
 
+    <dimen name="album_back_button_paddingTop">16dp</dimen>
+    <dimen name="album_back_button_dim">62dp</dimen>
 
 
 </resources>

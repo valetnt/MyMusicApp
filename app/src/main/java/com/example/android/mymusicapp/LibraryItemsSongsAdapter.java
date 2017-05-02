@@ -1,5 +1,6 @@
 package com.example.android.mymusicapp;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +16,11 @@ public class LibraryItemsSongsAdapter
         extends RecyclerView.Adapter<LibraryItemsSongsAdapter.ViewHolder> {
     
     private ArrayList<String> SongsList;
+    private Context context;
 
-    public LibraryItemsSongsAdapter(ArrayList<String> SongsList) {
+    public LibraryItemsSongsAdapter(ArrayList<String> SongsList, Context context) {
         this.SongsList = SongsList;
+        this.context = context;
     }
 
     // Create new views (invoked by the layout manager)
@@ -53,6 +56,9 @@ public class LibraryItemsSongsAdapter
                 break;
             }
         }
+
+
+
     }
 
     // Return the size of your libraryItems (invoked by the layout manager)

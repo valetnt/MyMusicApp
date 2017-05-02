@@ -17,8 +17,13 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    static final String EXTRA_ARTIST = "com.example.android.mymusicapp.EXTRA_ARTIST";
+    static final String EXTRA_ALBUM = "com.example.android.mymusicapp.EXTRA_ALBUM";
+    static final String EXTRA_SONGLIST = "com.example.android.mymusicapp.EXTRA_SONGLIST";
+    static final String EXTRA_ALBUMLIST = "com.example.android.mymusicapp.EXTRA_ALBUMLIST";
+    static final String EXTRA_WHOSCALLING = "com.example.android.mymusicapp.WHOSCALLING";
 
-     static final LibraryItemsData[] libraryItems = {
+    static final LibraryItemsData[] libraryItems = {
             new LibraryItemsData("Tears Dry On Their Own", "Amy Winehouse",
                     "Back To Black", R.drawable.amy_winehouse_back_to_black),
             new LibraryItemsData("Love Is A Losing Game", "Amy Winehouse",

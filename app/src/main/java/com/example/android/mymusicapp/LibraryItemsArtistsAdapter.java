@@ -2,7 +2,6 @@ package com.example.android.mymusicapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,6 +17,9 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUMLIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_ARTIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_WHOSCALLING;
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
 
 public class LibraryItemsArtistsAdapter
@@ -25,8 +27,6 @@ public class LibraryItemsArtistsAdapter
     
     private ArrayList<String> ArtistsList;
     private Context context;
-    static final String EXTRA_ARTIST = "com.example.android.mymusicapp.EXTRA_ARTIST";
-    static final String EXTRA_ALBUMLIST = "com.example.android.mymusicapp.EXTRA_ALBUMLIST";
 
     public LibraryItemsArtistsAdapter(ArrayList<String> ArtistsList, Context context) {
         this.ArtistsList = ArtistsList;
@@ -97,6 +97,7 @@ public class LibraryItemsArtistsAdapter
                 Intent browseArtistAlbums = new Intent(view.getContext(), Artist.class);
                 browseArtistAlbums.putExtra(EXTRA_ARTIST, String.valueOf(viewHolder.txtViewArtist.getText()));
                 browseArtistAlbums.putExtra(EXTRA_ALBUMLIST, albumList);
+                browseArtistAlbums.putExtra(EXTRA_WHOSCALLING,"MyLibrary");
                 context.startActivity(browseArtistAlbums);
             }
         });

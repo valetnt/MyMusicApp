@@ -34,5 +34,8 @@
 
     <string name="title_activity_artist">Artist</string>
     <string name="title_activity_album">Album</string>
+    <string name="title_activity_album_from_artist">AlbumFromArtist</string>
+
+    <string name="back_button">Back To Artist</string>
 
 </resources>

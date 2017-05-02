@@ -13,7 +13,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import static com.example.android.mymusicapp.LibraryItemsArtistsAdapter.EXTRA_ARTIST;
+
+import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUM;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUMLIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_ARTIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_SONGLIST;
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
 
 public class LibraryItemsAlbumsAdapter
@@ -21,13 +25,12 @@ public class LibraryItemsAlbumsAdapter
     
     private ArrayList<String> AlbumsList;
     private Context context;
-    static final String EXTRA_ALBUM = "com.example.android.mymusicapp.EXTRA_ALBUM";
-    static final String EXTRA_SONGLIST = "com.example.android.mymusicapp.EXTRA_SONGLIST";
+    private String activityID;
 
-
-    public LibraryItemsAlbumsAdapter(ArrayList<String> AlbumsList, Context context) {
+    public LibraryItemsAlbumsAdapter(ArrayList<String> AlbumsList, Context context, String identifier) {
         this.AlbumsList = AlbumsList;
         this.context = context;
+        this.activityID = identifier;
     }
 
     // Create new views (invoked by the layout manager)
@@ -89,11 +92,24 @@ public class LibraryItemsAlbumsAdapter
                     }
                 });
 
-                Intent browseAlbumSongs = new Intent(view.getContext(), Album.class);
-                browseAlbumSongs.putExtra(EXTRA_ALBUM, String.valueOf(viewHolder.txtViewAlbum.getText()));
-                browseAlbumSongs.putExtra(EXTRA_SONGLIST, songList);
-                browseAlbumSongs.putExtra(EXTRA_ARTIST, albumArtist);
-                context.startActivity(browseAlbumSongs);
+
+                if (activityID.equals("library")) {
+                    Intent browseAlbumSongs = new Intent(view.getContext(), Album.class);
+                    browseAlbumSongs.putExtra(EXTRA_ALBUM, String.valueOf(viewHolder.txtViewAlbum.getText()));
+                    browseAlbumSongs.putExtra(EXTRA_SONGLIST, songList);
+                    browseAlbumSongs.putExtra(EXTRA_ARTIST, albumArtist);
+                    browseAlbumSongs.putExtra(EXTRA_ALBUMLIST, AlbumsList);
+                    context.startActivity(browseAlbumSongs);
+                }
+
+                else if (activityID.equals("artistAlbum")) {
+                    Intent browseAlbumSongs = new Intent(view.getContext(), AlbumFromArtist.class);
+                    browseAlbumSongs.putExtra(EXTRA_ALBUM, String.valueOf(viewHolder.txtViewAlbum.getText()));
+                    browseAlbumSongs.putExtra(EXTRA_SONGLIST, songList);
+                    browseAlbumSongs.putExtra(EXTRA_ARTIST, albumArtist);
+                    browseAlbumSongs.putExtra(EXTRA_ALBUMLIST, AlbumsList);
+                    context.startActivity(browseAlbumSongs);
+                }
             }
         });
 
