@@ -77,4 +77,18 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="info_bar" parent="AppTheme">
+        <item name="android:background">@color/veryDarkGray</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="info_bar_subtitle" parent="AppTheme">
+        <item name="android:background">@color/veryDarkGray</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

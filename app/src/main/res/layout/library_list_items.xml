@@ -7,15 +7,20 @@
         android:id="@+id/library_thumb"
         android:layout_width="@dimen/library_thumb_dim"
         android:layout_height="@dimen/library_thumb_dim"
-        android:layout_margin="@dimen/library_thumb_padding"
+        android:layout_marginTop="@dimen/library_thumb_margin"
+        android:layout_marginBottom="@dimen/library_thumb_margin"
+        android:layout_marginRight="@dimen/library_thumb_margin"
+        android:layout_marginEnd="@dimen/library_thumb_margin"
         android:contentDescription="@string/thumbnail_img_content_description"/>
 
     <TextView
         android:id="@+id/library_field"
         android:layout_width="@dimen/library_textView_width"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/library_thumb_padding"
-        android:layout_marginStart="@dimen/library_thumb_padding"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginLeft="@dimen/library_thumb_margin"
+        android:layout_marginStart="@dimen/library_thumb_margin"
         android:layout_gravity="center"
         android:gravity="center_vertical"
         android:textAppearance="@style/LibraryItems" />

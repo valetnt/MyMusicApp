@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -21,7 +22,8 @@ public class MainActivity extends AppCompatActivity
     static final String EXTRA_ALBUM = "com.example.android.mymusicapp.EXTRA_ALBUM";
     static final String EXTRA_SONGLIST = "com.example.android.mymusicapp.EXTRA_SONGLIST";
     static final String EXTRA_ALBUMLIST = "com.example.android.mymusicapp.EXTRA_ALBUMLIST";
-    static final String EXTRA_WHOSCALLING = "com.example.android.mymusicapp.WHOSCALLING";
+    static final String EXTRA_WHOSCALLING = "com.example.android.mymusicapp.EXTRA_WHOSCALLING";
+    static final String EXTRA_SECTION = "com.example.android.mymusicapp.EXTRA_SECTION";
 
     static final LibraryItemsData[] libraryItems = {
             new LibraryItemsData("Tears Dry On Their Own", "Amy Winehouse",

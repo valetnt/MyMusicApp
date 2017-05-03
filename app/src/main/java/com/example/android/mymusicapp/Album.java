@@ -6,7 +6,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -29,9 +29,7 @@ public class Album extends AppCompatActivity {
         selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
         artist = getIntent().getStringExtra(EXTRA_ARTIST);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.album_toolbar);
-        String toolbarTitle = artist + " - " + selectedAlbumTitle;
-        toolbar.setTitle(toolbarTitle);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_album);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -42,9 +40,12 @@ public class Album extends AppCompatActivity {
         recyclerView_albumSongs.setHasFixedSize(true);
         recyclerView_albumSongs.addItemDecoration(new LibraryItemsDividerDecoration(this));
         recyclerView_albumSongs.setItemAnimator(new DefaultItemAnimator());
-        recyclerView_albumSongs.setAdapter(new LibraryItemsSongsAdapter(selectedAlbumSongs, null, selectedAlbumTitle, artist, this, "album"));
+        recyclerView_albumSongs.setAdapter(new LibraryItemsSongsAdapter(selectedAlbumSongs, null,
+                selectedAlbumTitle, artist, this, "album"));
+
+        ((TextView)findViewById(R.id.info_bar_album_title)).setText(selectedAlbumTitle);
+        ((TextView)findViewById(R.id.info_bar_album_artist)).setText(artist);
 
     }
-
 }
 

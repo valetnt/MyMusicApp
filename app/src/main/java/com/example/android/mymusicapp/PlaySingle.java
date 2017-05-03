@@ -1,9 +1,13 @@
 package com.example.android.mymusicapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+
+import static com.example.android.mymusicapp.MainActivity.EXTRA_SECTION;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_WHOSCALLING;
+import static com.example.android.mymusicapp.MyLibrary.PlaceholderFragment.ARG_SECTION_NUMBER;
 
 public class PlaySingle extends AppCompatActivity {
 

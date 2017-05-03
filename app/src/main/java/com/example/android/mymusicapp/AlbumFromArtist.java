@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUMLIST;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ARTIST;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_SONGLIST;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_WHOSCALLING;
+
 
 public class AlbumFromArtist extends AppCompatActivity {
 
@@ -37,8 +39,6 @@ public class AlbumFromArtist extends AppCompatActivity {
         albumListForArtist = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_album_from_artist);
-        String toolbarTitle = artist + " - " + selectedAlbumTitle;
-        toolbar.setTitle(toolbarTitle);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -62,6 +62,9 @@ public class AlbumFromArtist extends AppCompatActivity {
                 startActivity(backToArtist);
             }
         });
+
+        ((TextView)findViewById(R.id.info_bar_album_from_artist_title)).setText(selectedAlbumTitle);
+        ((TextView)findViewById(R.id.info_bar_album_from_artist_artist)).setText(artist);
     }
 
 }

@@ -17,6 +17,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,7 +30,12 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
+import static android.R.id.toggle;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_SECTION;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_WHOSCALLING;
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
+import static com.example.android.mymusicapp.MyLibrary.PlaceholderFragment.ARG_SECTION_NUMBER;
+import static com.example.android.mymusicapp.R.id.container;
 
 
 public class MyLibrary extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -53,7 +59,6 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_library);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -62,7 +67,7 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) findViewById(container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -77,9 +82,6 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /*if(savedInstanceState==null){
-            PlaceholderFragment.newInstance(1);
-        }*/
 
     }
 
@@ -162,7 +164,7 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
                         }
                     });
 
-                    RecyclerView recyclerView_artists = (RecyclerView) rootView1.findViewById(R.id.mylibrary_list_item);
+                    RecyclerView recyclerView_artists = (RecyclerView) rootView1.findViewById(R.id.library_list_item);
                     recyclerView_artists.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
                     recyclerView_artists.setAdapter(new LibraryItemsArtistsAdapter(ArtistsList, getContext()));
@@ -193,7 +195,7 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
                         }
                     });
 
-                    RecyclerView recyclerView_albums = (RecyclerView) rootView2.findViewById(R.id.mylibrary_list_item);
+                    RecyclerView recyclerView_albums = (RecyclerView) rootView2.findViewById(R.id.library_list_item);
                     recyclerView_albums.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
                     recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter(AlbumsList, getContext(), "library"));
@@ -224,7 +226,7 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
                         }
                     });
 
-                    RecyclerView recyclerView_Songs = (RecyclerView) rootView3.findViewById(R.id.mylibrary_list_item);
+                    RecyclerView recyclerView_Songs = (RecyclerView) rootView3.findViewById(R.id.library_list_item);
                     recyclerView_Songs.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
                     recyclerView_Songs.setAdapter(new LibraryItemsSongsAdapter(SongsList, null, null, null, getContext(), "library"));

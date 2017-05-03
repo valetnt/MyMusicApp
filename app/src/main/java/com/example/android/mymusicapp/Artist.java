@@ -6,6 +6,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -38,8 +39,8 @@ public class Artist extends AppCompatActivity {
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.artist_toolbar);
-        toolbar.setTitle(selectedArtistName);
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView recyclerView_artistAlbums = (RecyclerView) findViewById(R.id.artist);
@@ -49,5 +50,7 @@ public class Artist extends AppCompatActivity {
         recyclerView_artistAlbums.addItemDecoration(new LibraryItemsDividerDecoration(this));
         recyclerView_artistAlbums.setItemAnimator(new DefaultItemAnimator());
         recyclerView_artistAlbums.setAdapter(new LibraryItemsAlbumsAdapter(selectedArtistAlbums, this, "artistalbum"));
+
+        ((TextView)findViewById(R.id.info_bar_artist)).setText(selectedArtistName);
     }
 }
