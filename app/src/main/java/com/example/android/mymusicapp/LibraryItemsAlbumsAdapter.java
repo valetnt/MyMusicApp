@@ -18,6 +18,7 @@ import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUM;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUMLIST;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ARTIST;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_SONGLIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_WHOSCALLING;
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
 
 public class LibraryItemsAlbumsAdapter
@@ -99,6 +100,7 @@ public class LibraryItemsAlbumsAdapter
                     browseAlbumSongs.putExtra(EXTRA_SONGLIST, songList);
                     browseAlbumSongs.putExtra(EXTRA_ARTIST, albumArtist);
                     browseAlbumSongs.putExtra(EXTRA_ALBUMLIST, AlbumsList);
+                    browseAlbumSongs.putExtra(EXTRA_WHOSCALLING,"library");
                     context.startActivity(browseAlbumSongs);
                 }
 
@@ -108,6 +110,7 @@ public class LibraryItemsAlbumsAdapter
                     browseAlbumSongs.putExtra(EXTRA_SONGLIST, songList);
                     browseAlbumSongs.putExtra(EXTRA_ARTIST, albumArtist);
                     browseAlbumSongs.putExtra(EXTRA_ALBUMLIST, AlbumsList);
+                    browseAlbumSongs.putExtra(EXTRA_WHOSCALLING, "artistalbum");
                     context.startActivity(browseAlbumSongs);
                 }
             }

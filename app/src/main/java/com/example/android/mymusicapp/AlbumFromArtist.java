@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -33,10 +34,21 @@ public class AlbumFromArtist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album_from_artist);
 
-        selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
-        selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
-        artist = getIntent().getStringExtra(EXTRA_ARTIST);
-        albumListForArtist = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
+        if (getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("artistalbum")){
+            selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
+            selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
+            artist = getIntent().getStringExtra(EXTRA_ARTIST);
+            albumListForArtist = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
+        } else if (getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("playalbumtrack")) {
+            selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
+            selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
+            artist = getIntent().getStringExtra(EXTRA_ARTIST);
+            albumListForArtist = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
+        } else {
+            Toast.makeText(this, "ERROR: No Intent Received", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_album_from_artist);
         setSupportActionBar(toolbar);

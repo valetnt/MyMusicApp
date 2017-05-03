@@ -46,15 +46,17 @@ public class PlayAlbumTrack extends AppCompatActivity {
                     goBackToAlbum.putExtra(EXTRA_ALBUM, selectedAlbumTitle);
                     goBackToAlbum.putExtra(EXTRA_SONGLIST, selectedAlbumSongs);
                     goBackToAlbum.putExtra(EXTRA_ARTIST, artist);
+                    goBackToAlbum.putExtra(EXTRA_WHOSCALLING,"playalbumtrack");
                     startActivity(goBackToAlbum);
 
                 } else if (senderActivity.equals("artistalbum")) {
-                    Intent goBackToAlbum = new Intent(v.getContext(), Album.class);
-                    goBackToAlbum.putExtra(EXTRA_ALBUM, selectedAlbumTitle);
-                    goBackToAlbum.putExtra(EXTRA_SONGLIST, selectedAlbumSongs);
-                    goBackToAlbum.putExtra(EXTRA_ARTIST, artist);
-                    goBackToAlbum.putExtra(EXTRA_ALBUMLIST,albumListForArtist);
-                    startActivity(goBackToAlbum);
+                    Intent goBackToAlbumFromArtist = new Intent(v.getContext(), AlbumFromArtist.class);
+                    goBackToAlbumFromArtist.putExtra(EXTRA_ALBUM, selectedAlbumTitle);
+                    goBackToAlbumFromArtist.putExtra(EXTRA_SONGLIST, selectedAlbumSongs);
+                    goBackToAlbumFromArtist.putExtra(EXTRA_ARTIST, artist);
+                    goBackToAlbumFromArtist.putExtra(EXTRA_ALBUMLIST,albumListForArtist);
+                    goBackToAlbumFromArtist.putExtra(EXTRA_WHOSCALLING,"playalbumtrack");
+                    startActivity(goBackToAlbumFromArtist);
                 }
 
             }

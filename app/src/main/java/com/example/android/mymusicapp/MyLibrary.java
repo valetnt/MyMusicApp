@@ -30,13 +30,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
-import static android.R.id.toggle;
-import static com.example.android.mymusicapp.MainActivity.EXTRA_SECTION;
-import static com.example.android.mymusicapp.MainActivity.EXTRA_WHOSCALLING;
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
-import static com.example.android.mymusicapp.MyLibrary.PlaceholderFragment.ARG_SECTION_NUMBER;
-import static com.example.android.mymusicapp.R.id.container;
-
 
 public class MyLibrary extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -67,7 +61,7 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(container);
+        mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -82,9 +76,7 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -116,6 +108,7 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
+
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -250,7 +243,6 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
             super.onBackPressed();
         }
     }
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

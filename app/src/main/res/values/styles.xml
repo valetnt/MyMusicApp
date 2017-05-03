@@ -91,4 +91,18 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="Now_Playing_Info">
+        <item name="android:background">@color/veryDarkGray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Now_Playing_Info_Subtitle">
+        <item name="android:background">@color/veryDarkGray</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>
