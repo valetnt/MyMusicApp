@@ -17,15 +17,22 @@
     <string name="action_main1">Settings</string>
     <string name="action_main2">Help</string>
 
-    <string name="suggested4U_HeaderTextView">Suggested For You</string>
-    <string name="most_popular_HeaderTextView">Most Popular</string>
-    <string name="recently_added_HeaderTextView">Recently Added To Your Library</string>
-    <string name="thumbnail_img_content_description">album cover thumbnail</string>
-
-    <string name="title_activity_my_library">My Library</string>
     <string name="action_mylibrary1">Search</string>
     <string name="action_mylibrary2">Add To Playlist</string>
     <string name="action_mylibrary3">Delete</string>
+
+    <string name="action_mystore1">Settings</string>
+    <string name="action_mystore2">My Wishlist</string>
+    <string name="action_mystore3">Browse By Genre</string>
+
+    <string name="suggested4U_HeaderTextView">Recommended For You</string>
+    <string name="most_popular_HeaderTextView">Most Popular Now</string>
+    <string name="new_music_HeaderTextView">New Music</string>
+    <string name="recently_added_HeaderTextView">Recently Purchased</string>
+    <string name="thumbnail_img_content_description">album cover thumbnail</string>
+
+    <string name="title_activity_my_library">My Library</string>
+
     <string name="section_label1">Artists</string>
     <string name="section_label2">Albums</string>
     <string name="section_label3">All</string>
@@ -49,5 +56,7 @@
     <string name="now_playing_info_song">Title Of The Song</string>
     <string name="now_playing_info_artist">Name Of The Artist</string>
     <string name="now_playing_info_album">Title Of The Album</string>
+
+    <string name="search_hint">What are you looking for?</string>
 
 </resources>

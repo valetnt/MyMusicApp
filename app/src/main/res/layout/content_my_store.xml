@@ -1,19 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginEnd="@dimen/activity_horizontal_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.android.mymusicapp.MyStore"
     tools:showIn="@layout/app_bar_my_store">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/searchBar_textView_height"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/small_padding"
+                android:background="@color/darkerBackground"
+                android:hint="@string/search_hint"
+                android:maxLines="1"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_padding"
+                android:src="@drawable/search_icon"
+                android:scaleType="centerInside"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
     <ScrollView
+        style="@style/MainScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        style="@style/MainScrollView"
-        android:padding="@dimen/scrollView_margin">
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,17 +70,43 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/headers_padding"
                     android:paddingBottom="@dimen/headers_padding"
+                    android:paddingTop="@dimen/headers_padding"
+                    android:text="@string/new_music_HeaderTextView"
+                    android:textAppearance="@style/ContentHeader" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/new_music"
+                    style="@style/SmallItemsRecyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/scrollableSections_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/headers_padding"
+                    android:paddingTop="@dimen/headers_padding"
                     android:text="@string/suggested4U_HeaderTextView"
-                    android:textAppearance="@style/ContentHeader"/>
+                    android:textAppearance="@style/ContentHeader" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/suggested4u"
+                    style="@style/SmallItemsRecyclerView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scrollbars="horizontal"
-                    style="@style/SmallItemsRecyclerView">
+                    android:scrollbars="horizontal">
 
                 </android.support.v7.widget.RecyclerView>
 
@@ -54,17 +121,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/headers_padding"
                     android:paddingBottom="@dimen/headers_padding"
+                    android:paddingTop="@dimen/headers_padding"
                     android:text="@string/most_popular_HeaderTextView"
-                    android:textAppearance="@style/ContentHeader"/>
+                    android:textAppearance="@style/ContentHeader" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/most_popular"
+                    style="@style/SmallItemsRecyclerView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scrollbars="horizontal"
-                    style="@style/SmallItemsRecyclerView">
+                    android:scrollbars="horizontal">
 
                 </android.support.v7.widget.RecyclerView>
 
@@ -79,17 +146,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/headers_padding"
                     android:paddingBottom="@dimen/headers_padding"
+                    android:paddingTop="@dimen/headers_padding"
                     android:text="@string/recently_added_HeaderTextView"
-                    android:textAppearance="@style/ContentHeader"/>
+                    android:textAppearance="@style/ContentHeader" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recently_added"
+                    style="@style/SmallItemsRecyclerView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scrollbars="horizontal"
-                    style="@style/SmallItemsRecyclerView">
+                    android:scrollbars="horizontal">
 
                 </android.support.v7.widget.RecyclerView>
 
@@ -100,4 +167,4 @@
     </ScrollView>
 
 
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

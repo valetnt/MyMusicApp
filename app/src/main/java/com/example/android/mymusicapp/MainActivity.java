@@ -31,11 +31,67 @@ public class MainActivity extends AppCompatActivity
                     "Back To Black", R.drawable.amy_winehouse_back_to_black),
             new LibraryItemsData("Love Is A Losing Game", "Amy Winehouse",
                     "Back To Black", R.drawable.amy_winehouse_back_to_black),
-            new LibraryItemsData("Sleeping Ute", "Grizzly Bear",
-                    "Shields", R.drawable.grizzly_bear_shields),
-            new LibraryItemsData("All My Stars Aligned", "St. Vincent", "Marry Me", -1),
-            new LibraryItemsData("The Neighbors", "St. Vincent", "Actor", -1),
-            new LibraryItemsData("Save Me From What I Want", "St. Vincent", "Actor", -1)
+            new LibraryItemsData("Rehab", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("You Know I'm No Good", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("Me & Mr Jones", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("Back To Black", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("Just Friends", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("Wake Up Alone", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("Some Unholy War", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("He Can Only Hold Her", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("Addicted", "Amy Winehouse",
+                    "Back To Black", R.drawable.amy_winehouse_back_to_black),
+            new LibraryItemsData("Chloe In The Afternoon", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Cruel", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Cheerleader", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Surgeon", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Northern Lights", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Strange Mercy", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Neutered Fruit", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Champagne Year", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Dilettante", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Hysterical Strength", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Year Of The Tiger", "St. Vincent", "Strange Mercy", -1),
+            new LibraryItemsData("Five Years", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Soul Love", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Moonage Daydream", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Starman", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("It Ain't Easy", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Lady Stardust", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Star", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Hang On To Yourself", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Ziggy Stardust", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Suffragette City", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Rock 'N' Roll Suicide", "David Bowie", "The Rise And Fall Of Ziggy Stardust And " +
+                    "The Spiders From Mars", R.drawable.david_bowie_ziggy_stardust),
+            new LibraryItemsData("Beauty And The Beast", "David Bowie", "Heroes", R.drawable.david_bowie_heroes),
+            new LibraryItemsData("Jon The Lion", "David Bowie", "Heroes", R.drawable.david_bowie_heroes),
+            new LibraryItemsData("Heroes", "David Bowie", "Heroes", R.drawable.david_bowie_heroes),
+            new LibraryItemsData("Sons Of The Silent Age", "David Bowie", "Heroes", R.drawable.david_bowie_heroes),
+            new LibraryItemsData("Black Out", "David Bowie", "Heroes", R.drawable.david_bowie_heroes),
+            new LibraryItemsData("V-2 Schneider", "David Bowie", "Heroes", R.drawable.david_bowie_heroes),
+            new LibraryItemsData("Sense Of Doubt", "David Bowie", "Heroes", R.drawable.david_bowie_heroes),
+            new LibraryItemsData("Moss Garden", "David Bowie", "Heroes", R.drawable.david_bowie_heroes),
+            new LibraryItemsData("Neukoln", "David Bowie", "Heroes", R.drawable.david_bowie_heroes),
+            new LibraryItemsData("The Secret Life Of Arabia", "David Bowie", "Heroes", R.drawable.david_bowie_heroes)
     };
 
     @Override

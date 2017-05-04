@@ -32,7 +32,8 @@
             android:name=".MyStore"
             android:label="@string/title_activity_my_store"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.mymusicapp.MyStore" />

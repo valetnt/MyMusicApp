@@ -19,7 +19,7 @@
     <!-- Library -->
     <dimen name="library_thumb_dim">52dp</dimen>
     <dimen name="library_thumb_margin">8dp</dimen>
-    <dimen name="library_textView_width">180dp</dimen>
+    <dimen name="library_textView_width">200dp</dimen>
 
     <!-- Artist, Album, AlbumFromArtist, Play -->
     <dimen name="album_back_button_paddingTop">16dp</dimen>
@@ -34,7 +34,13 @@
     <dimen name="cursor_progress_bar">16dp</dimen>
     <dimen name="player_times_width">64dp</dimen>
     <dimen name="album_cover_dim">160dp</dimen>
-    <dimen name="now_playing_info_dim">64dp</dimen>
+    <dimen name="now_playing_info_height">72dp</dimen>
+    <dimen name="now_playing_info_width">220dp</dimen>
+
     <dimen name="now_playing_vertical_margin">12dp</dimen>
+
+
+    <dimen name="searchBar_textView_height">52dp</dimen>
+    <dimen name="small_padding">4dp</dimen>
 
 </resources>

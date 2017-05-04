@@ -5,16 +5,16 @@
     <item
         android:id="@+id/action_mystore1"
         android:orderInCategory="100"
-        android:title="@string/action_mylibrary1"
+        android:title="@string/action_mystore1"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_mystore2"
         android:orderInCategory="100"
-        android:title="@string/action_mylibrary2"
+        android:title="@string/action_mystore2"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_mystore3"
         android:orderInCategory="100"
-        android:title="@string/action_mylibrary3"
+        android:title="@string/action_mystore3"
         app:showAsAction="never" />
 </menu>

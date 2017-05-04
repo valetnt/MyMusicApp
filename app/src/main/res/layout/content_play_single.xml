@@ -16,41 +16,64 @@
     <LinearLayout
         android:id="@+id/now_playing_info"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/now_playing_info_dim"
-        android:orientation="vertical">
+        android:layout_height="@dimen/now_playing_info_height"
+        android:orientation="vertical"
+        android:background="@color/veryDarkGray">
 
-        <TextView
-            android:id="@+id/now_playing_artist"
-            style="@style/Now_Playing_Info_Subtitle"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="@string/now_playing_info_artist" />
+            android:layout_weight="2">
 
-        <TextView
-            android:id="@+id/now_playing_song"
-            style="@style/Now_Playing_Info"
+            <TextView
+                android:id="@+id/now_playing_artist"
+                style="@style/Now_Playing_Info_Subtitle"
+                android:layout_width="@dimen/now_playing_info_width"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/now_playing_info_artist" />
+
+        </FrameLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="@string/now_playing_info_song" />
+            android:layout_weight="3">
 
-        <TextView
-            android:id="@+id/now_playing_album"
-            style="@style/Now_Playing_Info_Subtitle"
+            <TextView
+                android:id="@+id/now_playing_song"
+                style="@style/Now_Playing_Info"
+                android:layout_width="@dimen/now_playing_info_width"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/now_playing_info_song" />
+
+        </FrameLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="@string/now_playing_info_album" />
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/now_playing_album"
+                style="@style/Now_Playing_Info_Subtitle"
+                android:layout_width="@dimen/now_playing_info_width"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/now_playing_info_album" />
+
+        </FrameLayout>
+
 
     </LinearLayout>
 
