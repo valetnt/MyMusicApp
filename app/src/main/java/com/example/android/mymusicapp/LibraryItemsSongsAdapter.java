@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUM;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUMLIST;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ARTIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_COVER;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_SONG;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_SONGLIST;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_WHOSCALLING;
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
@@ -28,6 +31,8 @@ public class LibraryItemsSongsAdapter
     private String activityID;
     private String Artist;
     private String Album;
+    private String song;
+    private int albumCoverID;
 
     public LibraryItemsSongsAdapter(ArrayList<String> SongsList, @Nullable ArrayList<String> AlbumsList,
                                     @Nullable String Album, @Nullable String Artist, Context context, String identifier) {
@@ -53,7 +58,7 @@ public class LibraryItemsSongsAdapter
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(final ViewHolder viewHolder, int position) {
 
         viewHolder.txtViewSong.setText(SongsList.get(position));
 
@@ -74,35 +79,98 @@ public class LibraryItemsSongsAdapter
         }
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
+                //Log.i("POS_CLICKED: ", String.valueOf(viewHolder.getAdapterPosition()));
+
+                int j=0;
+                int pos = viewHolder.getAdapterPosition();
+                song = SongsList.get(pos);
+
                 if (activityID.equals("album")) {
 
-                    Intent playFromAlbum = new Intent(v.getContext(), PlayAlbumTrack.class);
-                    playFromAlbum.putExtra(EXTRA_ALBUM,Album);
-                    playFromAlbum.putExtra(EXTRA_SONGLIST,SongsList);
-                    playFromAlbum.putExtra(EXTRA_ARTIST,Artist);
-                    playFromAlbum.putExtra(EXTRA_WHOSCALLING,"album");
-                    v.getContext().startActivity(playFromAlbum);
-
-                } else if (activityID.equals("artistalbum")) {
+                    while (j < libraryItems.length) {
+                        if (libraryItems[j].getImageForSong(song) == -1) {
+                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            break;
+                        }
+                        else if (libraryItems[j].getImageForSong(song) == 0) {
+                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            j++;
+                        } else {
+                            albumCoverID = libraryItems[j].getImageForSong(song);
+                            break;
+                        }
+                    }
 
                     Intent playFromAlbum = new Intent(v.getContext(), PlayAlbumTrack.class);
                     playFromAlbum.putExtra(EXTRA_ALBUM,Album);
                     playFromAlbum.putExtra(EXTRA_SONGLIST,SongsList);
                     playFromAlbum.putExtra(EXTRA_ARTIST,Artist);
                     playFromAlbum.putExtra(EXTRA_ALBUMLIST,AlbumsList);
+                    playFromAlbum.putExtra(EXTRA_SONG, song);
+                    playFromAlbum.putExtra(EXTRA_COVER, albumCoverID);
+                    playFromAlbum.putExtra(EXTRA_WHOSCALLING,"album");
+                    v.getContext().startActivity(playFromAlbum);
+
+                } else if (activityID.equals("artistalbum")) {
+
+                    while (j < libraryItems.length) {
+                        if (libraryItems[j].getImageForSong(song) == -1) {
+                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            break;
+                        }
+                        else if (libraryItems[j].getImageForSong(song) == 0) {
+                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            j++;
+                        } else {
+                            albumCoverID = libraryItems[j].getImageForSong(song);
+                            break;
+                        }
+                    }
+
+                    Intent playFromAlbum = new Intent(v.getContext(), PlayAlbumTrack.class);
+                    playFromAlbum.putExtra(EXTRA_ALBUM,Album);
+                    playFromAlbum.putExtra(EXTRA_SONGLIST,SongsList);
+                    playFromAlbum.putExtra(EXTRA_ARTIST,Artist);
+                    playFromAlbum.putExtra(EXTRA_ALBUMLIST,AlbumsList);
+                    playFromAlbum.putExtra(EXTRA_SONG, song);
+                    playFromAlbum.putExtra(EXTRA_COVER, albumCoverID);
                     playFromAlbum.putExtra(EXTRA_WHOSCALLING,"artistalbum");
                     v.getContext().startActivity(playFromAlbum);
 
                 } else if (activityID.equals("library")) {
 
+                    while (j < libraryItems.length) {
+                        if (libraryItems[j].getImageForSong(song) == -1) {
+                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            Artist = libraryItems[j].getArtistName();
+                            Album = libraryItems[j].getAlbumTitle();
+                            break;
+                        }
+                        else if (libraryItems[j].getImageForSong(song) == 0) {
+                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            j++;
+                        } else {
+                            albumCoverID = libraryItems[j].getImageForSong(song);
+                            Artist = libraryItems[j].getArtistName();
+                            Album = libraryItems[j].getAlbumTitle();
+                            break;
+                        }
+                    }
+
                     Intent playFromSongList = new Intent(v.getContext(), PlaySingle.class);
+                    playFromSongList.putExtra(EXTRA_ALBUM,Album);
+                    playFromSongList.putExtra(EXTRA_ARTIST,Artist);
+                    playFromSongList.putExtra(EXTRA_SONG, song);
+                    playFromSongList.putExtra(EXTRA_COVER, albumCoverID);
+                    playFromSongList.putExtra(EXTRA_WHOSCALLING,"album");
                     v.getContext().startActivity(playFromSongList);
                 }
             }
         });
-
 
     }
 
@@ -119,6 +187,7 @@ public class LibraryItemsSongsAdapter
         private ImageView imgViewIcon;
 
         private ViewHolder(View itemLayoutView) {
+
             super(itemLayoutView);
             txtViewSong = (TextView) itemLayoutView.findViewById(R.id.library_field);
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.library_thumb);

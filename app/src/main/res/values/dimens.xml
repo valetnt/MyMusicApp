@@ -23,18 +23,18 @@
 
     <!-- Artist, Album, AlbumFromArtist, Play -->
     <dimen name="album_back_button_paddingTop">16dp</dimen>
-    <dimen name="album_back_button_dim">62dp</dimen>
+    <dimen name="album_back_button_height">52dp</dimen>
     <dimen name="info_bar_vertical_margin">12dp</dimen>
     <dimen name="info_bar_subtitle_vertical_margin">4dp</dimen>
 
     <!-- Play -->
     <dimen name="media_buttons_dim">48dp</dimen>
     <dimen name="media_buttons_bar_dim">52dp</dimen>
-    <dimen name="media_player_vertical_spacing">32dp</dimen>
+    <dimen name="media_player_vertical_spacing">24dp</dimen>
     <dimen name="cursor_progress_bar">16dp</dimen>
     <dimen name="player_times_width">64dp</dimen>
     <dimen name="album_cover_dim">160dp</dimen>
-    <dimen name="now_playing_info_dim">84dp</dimen>
+    <dimen name="now_playing_info_dim">64dp</dimen>
     <dimen name="now_playing_vertical_margin">12dp</dimen>
 
 </resources>

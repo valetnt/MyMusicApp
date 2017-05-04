@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUM;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUMLIST;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ARTIST;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_COVER;
+import static com.example.android.mymusicapp.MainActivity.EXTRA_SONG;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_SONGLIST;
 import static com.example.android.mymusicapp.MainActivity.EXTRA_WHOSCALLING;
 
@@ -20,6 +24,8 @@ public class PlayAlbumTrack extends AppCompatActivity {
     private ArrayList<String> selectedAlbumSongs;
     private String artist;
     private ArrayList<String> albumListForArtist;
+    private String songTitle;
+    private int albumCoverID;
     private String senderActivity;
 
     @Override
@@ -35,6 +41,8 @@ public class PlayAlbumTrack extends AppCompatActivity {
         selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
         artist = getIntent().getStringExtra(EXTRA_ARTIST);
         albumListForArtist = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
+        songTitle = getIntent().getStringExtra(EXTRA_SONG);
+        albumCoverID = getIntent().getIntExtra(EXTRA_COVER,R.mipmap.ic_music_note_black_24dp);
         senderActivity = getIntent().getStringExtra(EXTRA_WHOSCALLING);
 
         findViewById(R.id.back_to_album).setOnClickListener(new View.OnClickListener() {
@@ -61,6 +69,12 @@ public class PlayAlbumTrack extends AppCompatActivity {
 
             }
         });
+
+
+        ((TextView) findViewById(R.id.now_playing_artist)).setText(artist);
+        ((TextView) findViewById(R.id.now_playing_song)).setText(songTitle);
+        ((TextView) findViewById(R.id.now_playing_album)).setText(selectedAlbumTitle);
+        ((ImageView) findViewById(R.id.album_cover)).setImageResource(albumCoverID);
 
     }
 }

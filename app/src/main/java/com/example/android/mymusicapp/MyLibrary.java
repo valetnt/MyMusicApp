@@ -32,7 +32,8 @@ import java.util.Set;
 
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
 
-public class MyLibrary extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MyLibrary extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -157,12 +158,15 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
                         }
                     });
 
-                    RecyclerView recyclerView_artists = (RecyclerView) rootView1.findViewById(R.id.library_list_item);
+                    RecyclerView recyclerView_artists = (RecyclerView) rootView1
+                            .findViewById(R.id.library_list_item);
                     recyclerView_artists.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
-                    recyclerView_artists.setAdapter(new LibraryItemsArtistsAdapter(ArtistsList, getContext()));
+                    recyclerView_artists.setAdapter(new LibraryItemsArtistsAdapter
+                            (ArtistsList, getContext()));
                     recyclerView_artists.setHasFixedSize(true);
-                    recyclerView_artists.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
+                    recyclerView_artists.addItemDecoration(new LibraryItemsDividerDecoration
+                            (getContext()));
                     recyclerView_artists.setItemAnimator(new DefaultItemAnimator());
 
                     return rootView1;
@@ -188,12 +192,15 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
                         }
                     });
 
-                    RecyclerView recyclerView_albums = (RecyclerView) rootView2.findViewById(R.id.library_list_item);
+                    RecyclerView recyclerView_albums = (RecyclerView) rootView2
+                            .findViewById(R.id.library_list_item);
                     recyclerView_albums.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
-                    recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter(AlbumsList, getContext(), "library"));
+                    recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter
+                            (AlbumsList, getContext(), "library"));
                     recyclerView_albums.setHasFixedSize(true);
-                    recyclerView_albums.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
+                    recyclerView_albums.addItemDecoration(new LibraryItemsDividerDecoration
+                            (getContext()));
                     recyclerView_albums.setItemAnimator(new DefaultItemAnimator());
 
                     return rootView2;
@@ -219,12 +226,15 @@ public class MyLibrary extends AppCompatActivity implements NavigationView.OnNav
                         }
                     });
 
-                    RecyclerView recyclerView_Songs = (RecyclerView) rootView3.findViewById(R.id.library_list_item);
+                    RecyclerView recyclerView_Songs = (RecyclerView) rootView3
+                            .findViewById(R.id.library_list_item);
                     recyclerView_Songs.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
-                    recyclerView_Songs.setAdapter(new LibraryItemsSongsAdapter(SongsList, null, null, null, getContext(), "library"));
+                    recyclerView_Songs.setAdapter(new LibraryItemsSongsAdapter(SongsList, null,
+                            null, null, getContext(), "library"));
                     recyclerView_Songs.setHasFixedSize(true);
-                    recyclerView_Songs.addItemDecoration(new LibraryItemsDividerDecoration(getContext()));
+                    recyclerView_Songs.addItemDecoration(new LibraryItemsDividerDecoration
+                            (getContext()));
                     recyclerView_Songs.setItemAnimator(new DefaultItemAnimator());
 
                     return rootView3;
