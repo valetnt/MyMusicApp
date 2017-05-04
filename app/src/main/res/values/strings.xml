@@ -40,7 +40,7 @@
     <string name="title_activity_play_album_track">PlayAlbumTrack</string>
 
     <string name="back_to_album">Back To Album</string>
-    <string name="title_activity_temporary">Temporary</string>
+    <string name="title_activity_my_store">My Store</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
 

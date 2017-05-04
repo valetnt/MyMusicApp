@@ -37,12 +37,26 @@ public class PlaySingle extends AppCompatActivity {
         selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
         artist = getIntent().getStringExtra(EXTRA_ARTIST);
         songTitle = getIntent().getStringExtra(EXTRA_SONG);
-        albumCoverID = getIntent().getIntExtra(EXTRA_COVER,R.mipmap.ic_music_note_black_24dp);
+        albumCoverID = getIntent().getIntExtra(EXTRA_COVER,R.drawable.music_note);
 
         ((TextView) findViewById(R.id.now_playing_artist)).setText(artist);
         ((TextView) findViewById(R.id.now_playing_song)).setText(songTitle);
         ((TextView) findViewById(R.id.now_playing_album)).setText(selectedAlbumTitle);
         ((ImageView) findViewById(R.id.album_cover)).setImageResource(albumCoverID);
+
+        final View toggle = findViewById(R.id.media_buttons_extra);
+        toggle.setVisibility(View.INVISIBLE);
+        findViewById(R.id.album_cover).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(toggle.getVisibility()==View.VISIBLE){
+                    toggle.setVisibility(View.INVISIBLE);
+                } else {
+                    toggle.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
     }
 }

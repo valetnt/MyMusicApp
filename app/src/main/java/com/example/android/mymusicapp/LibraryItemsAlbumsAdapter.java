@@ -57,10 +57,10 @@ public class LibraryItemsAlbumsAdapter
         while (i < libraryItems.length) {
 
             if (libraryItems[i].getImageForAlbum(AlbumsList.get(position)) == 0) {
-                viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
+                viewHolder.imgViewIcon.setImageResource(R.drawable.music_note);
                 i++;
             } else if (libraryItems[i].getImageForAlbum(AlbumsList.get(position)) == -1) {
-                viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
+                viewHolder.imgViewIcon.setImageResource(R.drawable.music_note);
                 break;
             }
             else {

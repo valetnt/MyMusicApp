@@ -42,7 +42,7 @@ public class PlayAlbumTrack extends AppCompatActivity {
         artist = getIntent().getStringExtra(EXTRA_ARTIST);
         albumListForArtist = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
         songTitle = getIntent().getStringExtra(EXTRA_SONG);
-        albumCoverID = getIntent().getIntExtra(EXTRA_COVER,R.mipmap.ic_music_note_black_24dp);
+        albumCoverID = getIntent().getIntExtra(EXTRA_COVER,R.drawable.music_note);
         senderActivity = getIntent().getStringExtra(EXTRA_WHOSCALLING);
 
         findViewById(R.id.back_to_album).setOnClickListener(new View.OnClickListener() {
@@ -75,6 +75,20 @@ public class PlayAlbumTrack extends AppCompatActivity {
         ((TextView) findViewById(R.id.now_playing_song)).setText(songTitle);
         ((TextView) findViewById(R.id.now_playing_album)).setText(selectedAlbumTitle);
         ((ImageView) findViewById(R.id.album_cover)).setImageResource(albumCoverID);
+
+        final View toggle = findViewById(R.id.media_buttons_extra);
+        toggle.setVisibility(View.INVISIBLE);
+        findViewById(R.id.album_cover).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(toggle.getVisibility()==View.VISIBLE){
+                    toggle.setVisibility(View.INVISIBLE);
+                } else {
+                    toggle.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
     }
 }

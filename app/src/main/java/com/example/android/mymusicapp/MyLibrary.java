@@ -269,6 +269,8 @@ public class MyLibrary extends AppCompatActivity
         } else if (id == R.id.nav_playlists) {
 
         } else if (id == R.id.nav_store) {
+            Intent openMyStore = new Intent(this, MyStore.class);
+            startActivity(openMyStore);
 
         } else if (id == R.id.nav_settings) {
 

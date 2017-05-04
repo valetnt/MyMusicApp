@@ -35,7 +35,8 @@ public class LibraryItemsSongsAdapter
     private int albumCoverID;
 
     public LibraryItemsSongsAdapter(ArrayList<String> SongsList, @Nullable ArrayList<String> AlbumsList,
-                                    @Nullable String Album, @Nullable String Artist, Context context, String identifier) {
+                                    @Nullable String Album, @Nullable String Artist, Context context,
+                                    String identifier) {
         this.SongsList = SongsList;
         this.AlbumsList = AlbumsList;
         this.Album = Album;
@@ -66,11 +67,11 @@ public class LibraryItemsSongsAdapter
 
         while (i < libraryItems.length) {
             if (libraryItems[i].getImageForSong(SongsList.get(position)) == -1) {
-                viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
+                viewHolder.imgViewIcon.setImageResource(R.drawable.music_note);
                 break;
             }
             else if (libraryItems[i].getImageForSong(SongsList.get(position)) == 0) {
-                viewHolder.imgViewIcon.setImageResource(R.mipmap.ic_music_note_black_24dp);
+                viewHolder.imgViewIcon.setImageResource(R.drawable.music_note);
                 i++;
             } else {
                 viewHolder.imgViewIcon.setImageResource(libraryItems[i].getImageID());
@@ -93,11 +94,11 @@ public class LibraryItemsSongsAdapter
 
                     while (j < libraryItems.length) {
                         if (libraryItems[j].getImageForSong(song) == -1) {
-                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            albumCoverID = R.drawable.music_note;
                             break;
                         }
                         else if (libraryItems[j].getImageForSong(song) == 0) {
-                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            albumCoverID = R.drawable.music_note;
                             j++;
                         } else {
                             albumCoverID = libraryItems[j].getImageForSong(song);
@@ -119,11 +120,11 @@ public class LibraryItemsSongsAdapter
 
                     while (j < libraryItems.length) {
                         if (libraryItems[j].getImageForSong(song) == -1) {
-                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            albumCoverID = R.drawable.music_note;
                             break;
                         }
                         else if (libraryItems[j].getImageForSong(song) == 0) {
-                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            albumCoverID = R.drawable.music_note;
                             j++;
                         } else {
                             albumCoverID = libraryItems[j].getImageForSong(song);
@@ -145,13 +146,13 @@ public class LibraryItemsSongsAdapter
 
                     while (j < libraryItems.length) {
                         if (libraryItems[j].getImageForSong(song) == -1) {
-                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            albumCoverID = R.drawable.music_note;
                             Artist = libraryItems[j].getArtistName();
                             Album = libraryItems[j].getAlbumTitle();
                             break;
                         }
                         else if (libraryItems[j].getImageForSong(song) == 0) {
-                            albumCoverID = R.mipmap.ic_music_note_black_24dp;
+                            albumCoverID = R.drawable.music_note;
                             j++;
                         } else {
                             albumCoverID = libraryItems[j].getImageForSong(song);
