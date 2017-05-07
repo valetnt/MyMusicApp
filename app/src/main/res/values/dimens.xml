@@ -29,16 +29,22 @@
 
     <!-- Play -->
     <dimen name="media_buttons_dim">48dp</dimen>
-    <dimen name="media_buttons_bar_dim">52dp</dimen>
-    <dimen name="media_player_vertical_spacing">24dp</dimen>
-    <dimen name="cursor_progress_bar">16dp</dimen>
+    <dimen name="media_buttons_dim_land">44dp</dimen>
+    <dimen name="media_buttons_bar_dim">58dp</dimen>
+    <dimen name="media_player_vertical_spacing">12dp</dimen>
+    <dimen name="media_player_horizontal_spacing">8dp</dimen>
+    <dimen name="cursor_progress_bar">10dp</dimen>
     <dimen name="player_times_width">64dp</dimen>
     <dimen name="album_cover_dim">160dp</dimen>
     <dimen name="now_playing_info_height">72dp</dimen>
     <dimen name="now_playing_info_width">220dp</dimen>
+    <dimen name="now_playing_padding">2dp</dimen>
+    <dimen name="now_playing_vertical_margin">100dp</dimen>
+    <dimen name="picture_padding">4dp</dimen>
+    <dimen name="bigger_picture_padding">8dp</dimen>
 
-    <dimen name="now_playing_vertical_margin">12dp</dimen>
-
+    <dimen name="equalizer_marginVertical">88dp</dimen>
+    <dimen name="equalizer_marginHorizontal">8dp</dimen>
 
     <dimen name="searchBar_textView_height">52dp</dimen>
     <dimen name="small_padding">4dp</dimen>

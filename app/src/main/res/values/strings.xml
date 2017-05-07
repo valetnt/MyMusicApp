@@ -20,10 +20,16 @@
     <string name="action_mylibrary1">Search</string>
     <string name="action_mylibrary2">Add To Playlist</string>
     <string name="action_mylibrary3">Delete</string>
+    <string name="action_mylibrary4">Settings</string>
 
     <string name="action_mystore1">Settings</string>
     <string name="action_mystore2">My Wishlist</string>
     <string name="action_mystore3">Browse By Genre</string>
+
+    <string name="action_now_playing1">Share</string>
+    <string name="action_now_playing2">Add To Playlist</string>
+    <string name="action_now_playing3">Details</string>
+    <string name="action_now_playing4">Settings</string>
 
     <string name="suggested4U_HeaderTextView">Recommended For You</string>
     <string name="most_popular_HeaderTextView">Most Popular Now</string>

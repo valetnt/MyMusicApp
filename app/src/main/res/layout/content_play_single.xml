@@ -4,175 +4,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="@dimen/activity_vertical_margin"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.android.mymusicapp.PlaySingle"
     tools:showIn="@layout/activity_play_single">
 
-
     <LinearLayout
-        android:id="@+id/now_playing_info"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/now_playing_info_height"
-        android:orientation="vertical"
-        android:background="@color/veryDarkGray">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <FrameLayout
+        <LinearLayout
+            android:id="@+id/now_playing_info"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_height="@dimen/now_playing_info_height"
+            android:layout_marginStart="@dimen/media_player_horizontal_spacing"
+            android:layout_marginLeft="@dimen/media_player_horizontal_spacing"
+            android:layout_marginEnd="@dimen/media_player_horizontal_spacing"
+            android:layout_marginRight="@dimen/media_player_horizontal_spacing"
+            android:layout_marginTop="@dimen/media_player_vertical_spacing"
+            android:background="@color/veryDarkGray"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/now_playing_artist"
-                style="@style/Now_Playing_Info_Subtitle"
-                android:layout_width="@dimen/now_playing_info_width"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="@string/now_playing_info_artist" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
 
-        </FrameLayout>
+                <TextView
+                    android:id="@+id/now_playing_artist"
+                    style="@style/Now_Playing_Info_Subtitle"
+                    android:layout_width="@dimen/now_playing_info_width"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/now_playing_info_artist" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3">
+            </FrameLayout>
 
-            <TextView
-                android:id="@+id/now_playing_song"
-                style="@style/Now_Playing_Info"
-                android:layout_width="@dimen/now_playing_info_width"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="@string/now_playing_info_song" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3">
 
-        </FrameLayout>
+                <TextView
+                    android:id="@+id/now_playing_song"
+                    style="@style/Now_Playing_Info"
+                    android:layout_width="@dimen/now_playing_info_width"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/now_playing_info_song" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
+            </FrameLayout>
 
-            <TextView
-                android:id="@+id/now_playing_album"
-                style="@style/Now_Playing_Info_Subtitle"
-                android:layout_width="@dimen/now_playing_info_width"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="@string/now_playing_info_album" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
 
-        </FrameLayout>
+                <TextView
+                    android:id="@+id/now_playing_album"
+                    style="@style/Now_Playing_Info_Subtitle"
+                    android:layout_width="@dimen/now_playing_info_width"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/now_playing_info_album" />
 
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/album_cover"
+            android:layout_width="@dimen/album_cover_dim"
+            android:layout_height="@dimen/album_cover_dim"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/media_player_vertical_spacing"
+            android:layout_marginTop="@dimen/media_player_vertical_spacing" />
 
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/album_cover"
-        android:layout_width="@dimen/album_cover_dim"
-        android:layout_height="@dimen/album_cover_dim"
-        android:layout_below="@id/now_playing_info"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/now_playing_vertical_margin"
-        android:layout_marginTop="@dimen/now_playing_vertical_margin" />
+        android:layout_width="@dimen/media_buttons_dim"
+        android:layout_height="@dimen/media_buttons_dim"
+        android:src="@mipmap/ic_equalizer_black_24dp"
+        android:scaleType="centerCrop"
+        android:padding="@dimen/bigger_picture_padding"
+        android:layout_marginLeft="@dimen/equalizer_marginHorizontal"
+        android:layout_marginStart="@dimen/equalizer_marginHorizontal"
+        android:layout_marginTop="@dimen/equalizer_marginVertical"
+        android:background="@color/darkerBackground"/>
 
-    <FrameLayout
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/cursor_progress_bar"
-        android:layout_below="@id/album_cover"
-        android:layout_marginBottom="@dimen/info_bar_subtitle_vertical_margin"
-        android:background="@color/darkerBackground">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/scrollBarSize"
-            android:layout_gravity="center_vertical"
-            android:background="@color/veryDarkGray" />
-
-        <Button
-            android:layout_width="@dimen/cursor_progress_bar"
-            android:layout_height="@dimen/cursor_progress_bar"
-            android:background="@color/colorPrimary" />
-
-    </FrameLayout>
-
-    <RelativeLayout
-        android:id="@+id/player_times"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/progress_bar">
-
-        <TextView
-            android:layout_width="@dimen/player_times_width"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:gravity="center"
-            android:text="@string/media_player_start_time"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-
-        <TextView
-            android:layout_width="@dimen/player_times_width"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:gravity="center"
-            android:text="@string/media_player_end_time"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/media_buttons_extra"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/progress_bar"
-        android:background="@drawable/now_playing_extra_bar"
-        android:baselineAligned="false"
-        android:paddingBottom="@dimen/media_player_vertical_spacing">
-
-        <ImageView
-            android:layout_width="@dimen/media_buttons_dim"
-            android:layout_height="@dimen/media_buttons_dim"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="@dimen/now_playing_vertical_margin"
-            android:layout_marginStart="@dimen/now_playing_vertical_margin"
-            android:padding="@dimen/scrollBarSize"
-            android:scaleType="centerInside"
-            android:src="@drawable/shuffle" />
-
-
-        <ImageView
-            android:layout_width="@dimen/media_buttons_dim"
-            android:layout_height="@dimen/media_buttons_dim"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="@dimen/now_playing_vertical_margin"
-            android:layout_marginRight="@dimen/now_playing_vertical_margin"
-            android:scaleType="centerInside"
-            android:src="@drawable/repeat1" />
-
-    </RelativeLayout>
+    <ImageView
+        android:layout_width="@dimen/media_buttons_dim"
+        android:layout_height="@dimen/media_buttons_dim"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@mipmap/ic_volume_mute_black_24dp"
+        android:scaleType="centerCrop"
+        android:padding="@dimen/bigger_picture_padding"
+        android:layout_marginRight="@dimen/equalizer_marginHorizontal"
+        android:layout_marginEnd="@dimen/equalizer_marginHorizontal"
+        android:layout_marginTop="@dimen/equalizer_marginVertical"
+        android:background="@color/darkerBackground"/>
 
     <LinearLayout
         android:id="@+id/media_buttons"
         android:layout_width="match_parent"
         android:layout_height="@dimen/media_buttons_bar_dim"
-        android:layout_below="@id/player_times"
-        android:layout_marginBottom="@dimen/media_player_vertical_spacing"
-        android:layout_marginTop="@dimen/now_playing_vertical_margin"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/now_playing_vertical_margin"
+        android:layout_marginTop="@dimen/media_player_vertical_spacing"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -219,5 +168,105 @@
         </FrameLayout>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/media_buttons_extra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/media_buttons"
+        android:background="@drawable/now_playing_extra_bar"
+        android:baselineAligned="false"
+        android:layout_marginStart="@dimen/media_player_horizontal_spacing"
+        android:layout_marginLeft="@dimen/media_player_horizontal_spacing"
+        android:layout_marginEnd="@dimen/media_player_horizontal_spacing"
+        android:layout_marginRight="@dimen/media_player_horizontal_spacing">
+
+        <ImageView
+            android:id="@+id/shuffle_icon"
+            android:layout_width="@dimen/media_buttons_dim"
+            android:layout_height="@dimen/media_buttons_dim"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/media_player_horizontal_spacing"
+            android:layout_marginStart="@dimen/media_player_horizontal_spacing"
+            android:padding="@dimen/picture_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/shuffle" />
+
+        <ImageView
+            android:id="@+id/repeat_icon"
+            android:layout_width="@dimen/media_buttons_dim"
+            android:layout_height="@dimen/media_buttons_dim"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/media_player_horizontal_spacing"
+            android:layout_marginRight="@dimen/media_player_horizontal_spacing"
+            android:scaleType="centerInside"
+            android:src="@drawable/repeat1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shuffle_icon"
+            android:layout_marginEnd="@dimen/media_player_horizontal_spacing"
+            android:layout_marginLeft="@dimen/media_player_horizontal_spacing"
+            android:layout_marginRight="@dimen/media_player_horizontal_spacing"
+            android:layout_marginStart="@dimen/media_player_horizontal_spacing"
+            android:layout_marginTop="@dimen/media_player_vertical_spacing"
+            android:orientation="vertical"
+            android:padding="@dimen/now_playing_padding">
+
+
+            <FrameLayout
+                android:id="@+id/progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cursor_progress_bar"
+                android:layout_marginBottom="@dimen/media_player_vertical_spacing"
+                android:background="@color/darkerBackground"
+                android:padding="@dimen/now_playing_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/scrollBarSize"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/veryDarkGray" />
+
+                <Button
+                    android:layout_width="@dimen/cursor_progress_bar"
+                    android:layout_height="@dimen/cursor_progress_bar"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/colorPrimary" />
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/player_times"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/media_player_vertical_spacing">
+
+                <TextView
+                    android:layout_width="@dimen/player_times_width"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="@string/media_player_start_time"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <TextView
+                    android:layout_width="@dimen/player_times_width"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:text="@string/media_player_end_time"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>

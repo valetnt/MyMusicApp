@@ -3,23 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.mymusicapp.MyLibrary">
     <item
-        android:id="@+id/action_mylibrary1"
+        android:id="@+id/action_now_playing1"
         android:orderInCategory="100"
-        android:title="@string/action_mylibrary1"
+        android:title="@string/action_now_playing1"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_mylibrary2"
+        android:id="@+id/action_now_playing2"
         android:orderInCategory="100"
-        android:title="@string/action_mylibrary2"
+        android:title="@string/action_now_playing2"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_mylibrary3"
+        android:id="@+id/action_now_playing3"
         android:orderInCategory="100"
-        android:title="@string/action_mylibrary3"
+        android:title="@string/action_now_playing3"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_mylibrary4"
+        android:id="@+id/action_now_playing4"
         android:orderInCategory="100"
-        android:title="@string/action_mylibrary4"
+        android:title="@string/action_now_playing4"
         app:showAsAction="never" />
+
 </menu>

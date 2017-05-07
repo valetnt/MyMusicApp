@@ -3,6 +3,7 @@ package com.example.android.mymusicapp;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -30,6 +31,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.example.android.mymusicapp.MainActivity.SECTION;
 import static com.example.android.mymusicapp.MainActivity.libraryItems;
 
 public class MyLibrary extends AppCompatActivity
@@ -49,6 +51,7 @@ public class MyLibrary extends AppCompatActivity
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private int section = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +80,25 @@ public class MyLibrary extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        if (savedInstanceState == null) {
+            section = 0;
+        } else {
+            section = savedInstanceState.getInt(SECTION);
+        }
+
+        mViewPager.setCurrentItem(section);
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outInstanceState) {
+        section = mViewPager.getCurrentItem();
+        outInstanceState.putInt(SECTION, section);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        mViewPager.setCurrentItem(savedInstanceState.getInt(SECTION));
     }
 
     @Override
@@ -100,6 +122,10 @@ public class MyLibrary extends AppCompatActivity
             return true;
         } else if (id == R.id.action_mylibrary3) {
             return true;
+        } else if (id == R.id.action_mylibrary4) {
+            return true;
+        }else if ( id == android.R.id.home ) {
+            NavUtils.navigateUpFromSameTask(this);
         }
 
         return super.onOptionsItemSelected(item);

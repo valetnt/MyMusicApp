@@ -2,6 +2,7 @@ package com.example.android.mymusicapp;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -122,6 +123,8 @@ public class MyStore extends AppCompatActivity
             return true;
         } else if (id == R.id.action_mystore3) {
             return true;
+        } else if ( id == android.R.id.home ) {
+            NavUtils.navigateUpFromSameTask(this);
         }
 
         return super.onOptionsItemSelected(item);

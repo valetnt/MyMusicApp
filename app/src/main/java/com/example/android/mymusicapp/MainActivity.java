@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity
     static final String EXTRA_WHOSCALLING = "com.example.android.mymusicapp.EXTRA_WHOSCALLING";
     static final String EXTRA_SONG = "com.example.android.mymusicapp.EXTRA_SONG";
     static final String EXTRA_COVER = "com.example.android.mymusicapp.EXTRA_COVER";
+    static final String SECTION = "com.example.android.mymusicapp.SECTION";
 
     static final LibraryItemsData[] libraryItems = {
             new LibraryItemsData("Tears Dry On Their Own", "Amy Winehouse",
