@@ -157,11 +157,6 @@
             android:id="@+id/now_playing_info"
             android:layout_width="match_parent"
             android:layout_height="@dimen/now_playing_info_height"
-            android:layout_marginEnd="@dimen/media_player_horizontal_spacing"
-            android:layout_marginLeft="@dimen/media_player_horizontal_spacing"
-            android:layout_marginRight="@dimen/media_player_horizontal_spacing"
-            android:layout_marginStart="@dimen/media_player_horizontal_spacing"
-            android:layout_marginTop="@dimen/media_player_vertical_spacing"
             android:background="@color/veryDarkGray"
             android:orientation="vertical">
 
