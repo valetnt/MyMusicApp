@@ -6,4 +6,6 @@
     <color name="darkerBackground">#F5F5F5</color>
     <color name="veryDarkGray">#424242</color>
     <color name="darkGray">#78909C</color>
+    <color name="lightestYellow">#FFF8E1</color>
+    <color name="lightYellow">#FFE082</color>
 </resources>

@@ -49,26 +49,16 @@
     <string name="media_player_start_time">00:00</string>
     <string name="media_player_end_time">03:48</string>
 
-    <string name="MainActivity_label">MAIN ACTIVITY (HOME):</string>
-    <string name="MainActivity_description">This is the launcher activity. The screen layout should
-        be designed in such a way that it incourages the user to explore new music.
-        For example, there could be a search bar that allows the user to search for whatever song or
-        album or artist he has in mind at the moment, searching through his own library and
-        also through the music store.
-        The search bar should implement auto-complete, in order to help the user reach right what he
-        is looking for.
-        If what he is looking for is contained in his library, the suggested search result(s) should
-        point there, to that particular artist, album or song. More precisely, an intent should be
-        sent to either "Artist" or "Album" or "PlaySingle" activity. In case what he is looking for
-        is not contained in his library, then the suggested search result(s) should point to the
-        store, more precisely to a hierarchical child of a possible "MusicStore" activity
-        (which I have not implemented, although it appears in the navigation drawer).
-        The screen could also contain suggestions for new, popular or recommended music to purchase
-        on the store.
-        Suggestions are organized in horizontally scrollable RecycleViews. Again, by clicking on
-        one of these items, an intent is sent to a hierarchical child of the "MusicStore" activity.
-        If you click on one of the "recently purchased" items, an intent is sent to "Album", so
-        that this recently purchased album with all its songs is shown.
+    <string name="MainActivity_label">MAIN ACTIVITY (LAUNCHER):</string>
+    <string name="MainActivity_description">
+        A search bar allows you to search right away for whatever song or album or
+        artist you have in mind at the moment, searching not just through your own library, but
+        through the entire music store (not implemented).
+        On the main screen also appear suggestions for new, popular or recommended music to be
+        found in the store.
+        If you scroll down to the last category (\'recently purchased\') and click on one of the
+        albums, you can browse through its tracks. This is achieved by sending an intent to the
+        \'Album\' activity.
     </string>
 
 </resources>

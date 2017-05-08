@@ -52,7 +52,55 @@ public class SmallItemsAdapter extends RecyclerView.Adapter<SmallItemsAdapter.Vi
         viewHolder.txtViewArtist.setText(itemsData[position].getArtist());
         viewHolder.imgViewIcon.setImageResource(itemsData[position].getImageID());
 
+        // Both the album cover ImageView and the artist name TextView
+        // are sensitive to the clicks
+
+        // the icon is clickable
         viewHolder.imgViewIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // OnClickListener enabled ONLY FOR "Recently Purchased" items
+                // i.e. albums that already exist in the library
+                if (enable) {
+
+                    // Create a list of all the songs in the album
+                    ArrayList<String> songList = new ArrayList<>();
+                    for (int i = 0; i < libraryItems.length; i++) {
+                        if (libraryItems[i].getAlbumTitle().equals
+                                (itemsData[viewHolder.getAdapterPosition()].getTitle()))
+                            songList.add(libraryItems[i].getSongTitle());
+                    }
+
+                    // Discard repetitions
+                    Set<String> hsSongsList = new HashSet<>();
+                    hsSongsList.addAll(songList);
+                    songList.clear();
+                    songList.addAll(hsSongsList);
+
+                    // Sort by alphabetical order
+                    Collections.sort(songList, new Comparator<String>() {
+                        @Override
+                        public int compare(String o1, String o2) {
+                            return o1.compareToIgnoreCase(o2);
+                        }
+                    });
+
+
+                    Intent showThisItem = new Intent(v.getContext(), Album.class);
+                    showThisItem.putExtra(EXTRA_ARTIST,
+                            itemsData[viewHolder.getAdapterPosition()].getArtist());
+                    showThisItem.putExtra(EXTRA_ALBUM,
+                            itemsData[viewHolder.getAdapterPosition()].getTitle());
+                    showThisItem.putExtra(EXTRA_SONGLIST, songList);
+                    showThisItem.putExtra(EXTRA_WHOSCALLING, "main");
+                    v.getContext().startActivity(showThisItem);
+
+                }
+            }
+        });
+
+        // also the artist name is clickable
+        viewHolder.txtViewArtist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // OnClickListener enabled ONLY FOR "Recently Purchased" items
