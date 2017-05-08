@@ -35,7 +35,6 @@ public class MyStore extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        RecyclerView recyclerView_newMusicItems = (RecyclerView) findViewById(R.id.new_music);
         SmallItemsData newMusicItems[] = {
                 new SmallItemsData("Lust For Life", "Lana Del Rey", R.drawable.lana_del_rey_lust_for_life),
                 new SmallItemsData("Thunder", "Imagine Dragons", R.drawable.imagine_dragons_thunder),
@@ -44,7 +43,6 @@ public class MyStore extends AppCompatActivity
                 new SmallItemsData("Divide", "Ed Sheeran", R.drawable.ed_sheeran_divide)
         };
 
-        RecyclerView recyclerView_suggestedItems = (RecyclerView) findViewById(R.id.suggested4u);
         SmallItemsData suggestedItems[] = {
                 new SmallItemsData("Shields", "Grizzly Bear", R.drawable.grizzly_bear_shields),
                 new SmallItemsData("Born To Die", "Lana Del Rey", R.drawable.lana_del_rey_born_to_die),
@@ -54,7 +52,6 @@ public class MyStore extends AppCompatActivity
                 new SmallItemsData("St. Vincent", "St. Vincent", R.drawable.st_vincent_self_titled)
         };
 
-        RecyclerView recyclerView_mostPopularItems = (RecyclerView) findViewById(R.id.most_popular);
         SmallItemsData mostPopularItems[] = {
                 new SmallItemsData("25", "Adele", R.drawable.adele_25),
                 new SmallItemsData("Divide", "Ed Sheeran", R.drawable.ed_sheeran_divide),
@@ -63,7 +60,6 @@ public class MyStore extends AppCompatActivity
                 new SmallItemsData("Dangerous Woman", "Ariana Grande", R.drawable.ariana_grande_dangerous_woman)
         };
 
-        RecyclerView recyclerView_recentlyAddedItems = (RecyclerView) findViewById(R.id.recently_added);
         SmallItemsData recentlyAddedItems[] = {
                 new SmallItemsData("Back To Black", "Amy Winehouse", R.drawable.amy_winehouse_back_to_black),
                 new SmallItemsData("The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
@@ -71,21 +67,25 @@ public class MyStore extends AppCompatActivity
                 new SmallItemsData("Heroes", "David Bowie", R.drawable.david_bowie_heroes)
         };
 
+        RecyclerView recyclerView_newMusicItems = (RecyclerView) findViewById(R.id.new_music);
         recyclerView_newMusicItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView_newMusicItems.setHasFixedSize(true);
         recyclerView_newMusicItems.setAdapter(new SmallItemsAdapter(newMusicItems));
         recyclerView_newMusicItems.setItemAnimator(new DefaultItemAnimator());
 
+        RecyclerView recyclerView_suggestedItems = (RecyclerView) findViewById(R.id.suggested4u);
         recyclerView_suggestedItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView_suggestedItems.setHasFixedSize(true);
         recyclerView_suggestedItems.setAdapter(new SmallItemsAdapter(suggestedItems));
         recyclerView_suggestedItems.setItemAnimator(new DefaultItemAnimator());
 
+        RecyclerView recyclerView_mostPopularItems = (RecyclerView) findViewById(R.id.most_popular);
         recyclerView_mostPopularItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView_mostPopularItems.setHasFixedSize(true);
         recyclerView_mostPopularItems.setAdapter(new SmallItemsAdapter(mostPopularItems));
         recyclerView_mostPopularItems.setItemAnimator(new DefaultItemAnimator());
 
+        RecyclerView recyclerView_recentlyAddedItems = (RecyclerView) findViewById(R.id.recently_added);
         recyclerView_recentlyAddedItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView_recentlyAddedItems.setHasFixedSize(true);
         recyclerView_recentlyAddedItems.setAdapter(new SmallItemsAdapter(recentlyAddedItems));

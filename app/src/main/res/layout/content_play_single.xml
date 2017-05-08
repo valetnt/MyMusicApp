@@ -38,8 +38,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="end"
                     android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/now_playing_info_artist" />
+                    android:maxLines="1" />
 
             </FrameLayout>
 
@@ -56,8 +55,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="end"
                     android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/now_playing_info_song" />
+                    android:maxLines="1" />
 
             </FrameLayout>
 
@@ -74,8 +72,7 @@
                     android:layout_gravity="center_horizontal"
                     android:ellipsize="end"
                     android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/now_playing_info_album" />
+                    android:maxLines="1" />
 
             </FrameLayout>
 

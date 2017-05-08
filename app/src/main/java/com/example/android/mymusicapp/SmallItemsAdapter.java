@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class SmallItemsAdapter extends RecyclerView.Adapter<SmallItemsAdapter.ViewHolder> {
@@ -18,9 +19,10 @@ public class SmallItemsAdapter extends RecyclerView.Adapter<SmallItemsAdapter.Vi
     // Create new views (invoked by the layout manager)
     @Override
     public SmallItemsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         // create a new view
         View itemLayoutView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.small_items, null);
+                .inflate(R.layout.small_items, parent, false);
 
         // create ViewHolder
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);
@@ -36,12 +38,12 @@ public class SmallItemsAdapter extends RecyclerView.Adapter<SmallItemsAdapter.Vi
         viewHolder.imgViewIcon.setImageResource(itemsData[position].getImageID());
     }
 
-    // inner class to hold a reference to each item of RecyclerView
+    // Inner class to hold a reference to each item of RecyclerView
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView txtViewTitle;
-        public TextView txtViewArtist;
-        public ImageView imgViewIcon;
+        private TextView txtViewTitle;
+        private TextView txtViewArtist;
+        private ImageView imgViewIcon;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
@@ -50,7 +52,6 @@ public class SmallItemsAdapter extends RecyclerView.Adapter<SmallItemsAdapter.Vi
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.album_image);
         }
     }
-
 
     // Return the size of your itemsData (invoked by the layout manager)
     @Override

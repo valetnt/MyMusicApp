@@ -52,7 +52,7 @@ public class LibraryItemsSongsAdapter
     public LibraryItemsSongsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View itemLayoutView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.library_list_items, null);
+                .inflate(R.layout.library_list_items, parent, false);
 
         // create ViewHolder
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);

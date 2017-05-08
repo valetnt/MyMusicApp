@@ -16,16 +16,13 @@
 
     <string name="action_main1">Settings</string>
     <string name="action_main2">Help</string>
-
     <string name="action_mylibrary1">Search</string>
     <string name="action_mylibrary2">Add To Playlist</string>
     <string name="action_mylibrary3">Delete</string>
     <string name="action_mylibrary4">Settings</string>
-
     <string name="action_mystore1">Settings</string>
     <string name="action_mystore2">My Wishlist</string>
     <string name="action_mystore3">Browse By Genre</string>
-
     <string name="action_now_playing1">Share</string>
     <string name="action_now_playing2">Add To Playlist</string>
     <string name="action_now_playing3">Details</string>
@@ -36,33 +33,27 @@
     <string name="new_music_HeaderTextView">New Music</string>
     <string name="recently_added_HeaderTextView">Recently Purchased</string>
     <string name="thumbnail_img_content_description">album cover thumbnail</string>
-
+    <string name="search_hint">What are you looking for?</string>
     <string name="title_activity_my_library">My Library</string>
-
     <string name="section_label1">Artists</string>
     <string name="section_label2">Albums</string>
     <string name="section_label3">All</string>
     <string name="artist_img_content_description">artist/album thumbnail</string>
-    <string name="unknown">Unknown</string>
     <string name="title_activity_artist">Artist</string>
     <string name="title_activity_album">Album</string>
     <string name="title_activity_album_from_artist">AlbumFromArtist</string>
-
     <string name="back_button">Back To Artist</string>
     <string name="title_activity_play_single">PlaySingle</string>
     <string name="title_activity_play_album_track">PlayAlbumTrack</string>
-
     <string name="back_to_album">Back To Album</string>
     <string name="title_activity_my_store">My Store</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
-
     <string name="media_player_start_time">00:00</string>
     <string name="media_player_end_time">03:48</string>
-    <string name="now_playing_info_song">Title Of The Song</string>
-    <string name="now_playing_info_artist">Name Of The Artist</string>
-    <string name="now_playing_info_album">Title Of The Album</string>
 
-    <string name="search_hint">What are you looking for?</string>
+
+    <string name="MainActivity_label">HOME:</string>
+    <string name="MainActivity_description">Launcher activity.  </string>
 
 </resources>
