@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="@dimen/small_item_dim"
-    android:orientation="vertical"
-    android:padding="@dimen/small_item_container_padding">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/small_item_container_width"
+    android:layout_height="@dimen/small_item_container_height">
 
-    <ImageView
-        android:id="@+id/album_image"
-        android:layout_width="@dimen/thumbnails_dim"
-        android:layout_height="@dimen/thumbnails_dim"
-        android:layout_gravity="center"
-        android:contentDescription="@string/thumbnail_img_content_description"
-        android:scaleType="centerInside" />
-
-    <TextView
-        android:id="@+id/album_artist"
-        android:layout_width="@dimen/small_item_dim"
+    <LinearLayout
+        android:id="@+id/small_item_container"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:maxLines="1"
-        android:padding="@dimen/small_item_padding"
-        android:textAppearance="@style/SmallItemsArtist" />
+        android:orientation="vertical"
+        android:paddingTop="@dimen/small_item_container_padding">
 
-    <TextView
-        android:id="@+id/album_title"
-        android:layout_width="@dimen/small_item_dim"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:maxLines="1"
-        android:textAppearance="@style/SmallItemsAlbumTitle" />
+        <ImageView
+            android:id="@+id/album_image"
+            android:layout_width="@dimen/thumbnails_dim"
+            android:layout_height="@dimen/thumbnails_dim"
+            android:layout_gravity="center"
+            android:contentDescription="@string/thumbnail_img_content_description"
+            android:scaleType="centerInside" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/album_artist"
+            android:layout_width="@dimen/small_item_width"
+            android:layout_height="@dimen/small_item_height"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textAppearance="@style/SmallItemsArtist" />
+
+        <TextView
+            android:id="@+id/album_title"
+            android:layout_width="@dimen/small_item_width"
+            android:layout_height="@dimen/small_item_height"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textAppearance="@style/SmallItemsAlbumTitle" />
+
+    </LinearLayout>
+
+</FrameLayout>
+
+

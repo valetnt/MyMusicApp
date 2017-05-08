@@ -205,19 +205,19 @@ public class MyLibrary extends AppCompatActivity
                     View rootView2 = inflater.inflate(R.layout.fragment_my_library, container, false);
 
                     // Create a list of all the albums in the library
-                    ArrayList<String> AlbumsList = new ArrayList<>();
+                    ArrayList<String> albumList = new ArrayList<>();
                     for (int i = 0; i < libraryItems.length; i++) {
-                        AlbumsList.add(libraryItems[i].getAlbumTitle());
+                        albumList.add(libraryItems[i].getAlbumTitle());
                     }
 
                     // Discard repetitions
                     Set<String> hsAlbumsList = new HashSet<>();
-                    hsAlbumsList.addAll(AlbumsList);
-                    AlbumsList.clear();
-                    AlbumsList.addAll(hsAlbumsList);
+                    hsAlbumsList.addAll(albumList);
+                    albumList.clear();
+                    albumList.addAll(hsAlbumsList);
 
                     // Sort by alphabetical order
-                    Collections.sort(AlbumsList, new Comparator<String>() {
+                    Collections.sort(albumList, new Comparator<String>() {
                         @Override
                         public int compare(String o1, String o2) {
                             return o1.compareToIgnoreCase(o2);
@@ -229,7 +229,7 @@ public class MyLibrary extends AppCompatActivity
                     recyclerView_albums.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
                     recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter
-                            (AlbumsList, "library"));
+                            (albumList, "library"));
                     recyclerView_albums.setHasFixedSize(true);
                     recyclerView_albums.addItemDecoration(new LibraryItemsDividerDecoration
                             (getContext()));
@@ -242,19 +242,19 @@ public class MyLibrary extends AppCompatActivity
                     View rootView3 = inflater.inflate(R.layout.fragment_my_library, container, false);
 
                     // Create a list of all the songs in the library
-                    ArrayList<String> SongsList = new ArrayList<>();
+                    ArrayList<String> songList = new ArrayList<>();
                     for (int i = 0; i < libraryItems.length; i++) {
-                        SongsList.add(libraryItems[i].getSongTitle());
+                        songList.add(libraryItems[i].getSongTitle());
                     }
 
                     // Discard repetitions
                     Set<String> hsSongsList = new HashSet<>();
-                    hsSongsList.addAll(SongsList);
-                    SongsList.clear();
-                    SongsList.addAll(hsSongsList);
+                    hsSongsList.addAll(songList);
+                    songList.clear();
+                    songList.addAll(hsSongsList);
 
                     // Sort by alphabetical order
-                    Collections.sort(SongsList, new Comparator<String>() {
+                    Collections.sort(songList, new Comparator<String>() {
                         @Override
                         public int compare(String o1, String o2) {
                             return o1.compareToIgnoreCase(o2);
@@ -265,7 +265,7 @@ public class MyLibrary extends AppCompatActivity
                             .findViewById(R.id.library_list_item);
                     recyclerView_Songs.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
-                    recyclerView_Songs.setAdapter(new LibraryItemsSongsAdapter(SongsList, null,
+                    recyclerView_Songs.setAdapter(new LibraryItemsSongsAdapter(songList, null,
                             null, null, "library"));
                     recyclerView_Songs.setHasFixedSize(true);
                     recyclerView_Songs.addItemDecoration(new LibraryItemsDividerDecoration
@@ -305,8 +305,6 @@ public class MyLibrary extends AppCompatActivity
         } else if (id == R.id.nav_playlists) {
 
         } else if (id == R.id.nav_store) {
-            Intent openMyStore = new Intent(this, MyStore.class);
-            startActivity(openMyStore);
 
         } else if (id == R.id.nav_settings) {
 

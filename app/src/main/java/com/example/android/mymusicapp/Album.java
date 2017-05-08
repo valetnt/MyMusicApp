@@ -33,7 +33,8 @@ public class Album extends AppCompatActivity {
 
         /*
            The activity "Album" can be either called from the activity "MyLibrary" or re-called
-           from the activity "PlayAlbumTrack" (via "Back to Album" button).
+           from the activity "PlayAlbumTrack" (via "Back to Album" button) or called from
+           "MainActivity" when the user selects a "recently purchased" album.
         */
         if (getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("library")) {
             selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
@@ -41,6 +42,11 @@ public class Album extends AppCompatActivity {
             artist = getIntent().getStringExtra(EXTRA_ARTIST);
 
         } else if (getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("playalbumtrack")) {
+            selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
+            selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
+            artist = getIntent().getStringExtra(EXTRA_ARTIST);
+
+        } else if (getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("main")) {
             selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
             selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
             artist = getIntent().getStringExtra(EXTRA_ARTIST);

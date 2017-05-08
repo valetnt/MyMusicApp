@@ -7,6 +7,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -91,6 +94,39 @@ public class MainActivity extends AppCompatActivity
             new LibraryItemsData("The Secret Life Of Arabia", "David Bowie", "Heroes", R.drawable.david_bowie_heroes)
     };
 
+
+    static final SmallItemsData newMusicItems[] = {
+            new SmallItemsData("Lust For Life", "Lana Del Rey", R.drawable.lana_del_rey_lust_for_life),
+            new SmallItemsData("Thunder", "Imagine Dragons", R.drawable.imagine_dragons_thunder),
+            new SmallItemsData("Humanz", "Gorillaz", R.drawable.gorillaz_humanz),
+            new SmallItemsData("Automaton", "Jamiroquai", R.drawable.jamiroquai_automaton),
+            new SmallItemsData("Divide", "Ed Sheeran", R.drawable.ed_sheeran_divide)
+    };
+
+    static final SmallItemsData suggestedItems[] = {
+            new SmallItemsData("Shields", "Grizzly Bear", R.drawable.grizzly_bear_shields),
+            new SmallItemsData("Born To Die", "Lana Del Rey", R.drawable.lana_del_rey_born_to_die),
+            new SmallItemsData("Aladdin Sane", "David Bowie", R.drawable.david_bowie_aladdin_sane),
+            new SmallItemsData("Veckatimest", "Grizzly Bear", R.drawable.grizzly_bear_veckatimest),
+            new SmallItemsData("Come Away With Me", "Norah Jones", R.drawable.norah_jones_come_away_with_me),
+            new SmallItemsData("St. Vincent", "St. Vincent", R.drawable.st_vincent_self_titled)
+    };
+
+    static final SmallItemsData mostPopularItems[] = {
+            new SmallItemsData("25", "Adele", R.drawable.adele_25),
+            new SmallItemsData("Divide", "Ed Sheeran", R.drawable.ed_sheeran_divide),
+            new SmallItemsData("Born To Die", "Lana Del Rey", R.drawable.lana_del_rey_born_to_die),
+            new SmallItemsData("Views", "Drake", R.drawable.drake_views),
+            new SmallItemsData("Dangerous Woman", "Ariana Grande", R.drawable.ariana_grande_dangerous_woman)
+    };
+
+    static final SmallItemsData recentlyAddedItems[] = {
+            new SmallItemsData("Back To Black", "Amy Winehouse", R.drawable.amy_winehouse_back_to_black),
+            new SmallItemsData("The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
+                    "David Bowie", R.drawable.david_bowie_ziggy_stardust),
+            new SmallItemsData("Heroes", "David Bowie", R.drawable.david_bowie_heroes)
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +142,30 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        RecyclerView recyclerView_newMusicItems = (RecyclerView) findViewById(R.id.new_music);
+        recyclerView_newMusicItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView_newMusicItems.setHasFixedSize(true);
+        recyclerView_newMusicItems.setAdapter(new SmallItemsAdapter(newMusicItems, false));
+        recyclerView_newMusicItems.setItemAnimator(new DefaultItemAnimator());
+
+        RecyclerView recyclerView_suggestedItems = (RecyclerView) findViewById(R.id.suggested4u);
+        recyclerView_suggestedItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView_suggestedItems.setHasFixedSize(true);
+        recyclerView_suggestedItems.setAdapter(new SmallItemsAdapter(suggestedItems, false));
+        recyclerView_suggestedItems.setItemAnimator(new DefaultItemAnimator());
+
+        RecyclerView recyclerView_mostPopularItems = (RecyclerView) findViewById(R.id.most_popular);
+        recyclerView_mostPopularItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView_mostPopularItems.setHasFixedSize(true);
+        recyclerView_mostPopularItems.setAdapter(new SmallItemsAdapter(mostPopularItems, false));
+        recyclerView_mostPopularItems.setItemAnimator(new DefaultItemAnimator());
+
+        RecyclerView recyclerView_recentlyAddedItems = (RecyclerView) findViewById(R.id.recently_added);
+        recyclerView_recentlyAddedItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView_recentlyAddedItems.setHasFixedSize(true);
+        recyclerView_recentlyAddedItems.setAdapter(new SmallItemsAdapter(recentlyAddedItems, true));
+        recyclerView_recentlyAddedItems.setItemAnimator(new DefaultItemAnimator());
     }
 
     @Override
@@ -157,8 +217,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_playlists) {
 
         } else if (id == R.id.nav_store) {
-            Intent openMyStore = new Intent(this, MyStore.class);
-            startActivity(openMyStore);
 
         } else if (id == R.id.nav_settings) {
 

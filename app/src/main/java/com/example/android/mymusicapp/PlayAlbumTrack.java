@@ -79,6 +79,7 @@ public class PlayAlbumTrack extends AppCompatActivity {
         ((TextView) findViewById(R.id.now_playing_album)).setText(selectedAlbumTitle);
         ((ImageView) findViewById(R.id.album_cover)).setImageResource(albumCoverID);
 
+        // The extra controls frame opens/close by touching the album cover
         final View toggle = findViewById(R.id.media_buttons_extra);
         toggle.setVisibility(View.INVISIBLE);
         findViewById(R.id.album_cover).setOnClickListener(new View.OnClickListener() {

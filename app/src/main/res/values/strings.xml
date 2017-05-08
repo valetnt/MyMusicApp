@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">My Music App</string>
+    <string name="title_activity_my_library">My Library</string>
+    <string name="title_activity_artist">Artist</string>
+    <string name="title_activity_album">Album</string>
+    <string name="title_activity_album_from_artist">AlbumFromArtist</string>
+    <string name="title_activity_play_single">PlaySingle</string>
+    <string name="title_activity_play_album_track">PlayAlbumTrack</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -20,9 +26,6 @@
     <string name="action_mylibrary2">Add To Playlist</string>
     <string name="action_mylibrary3">Delete</string>
     <string name="action_mylibrary4">Settings</string>
-    <string name="action_mystore1">Settings</string>
-    <string name="action_mystore2">My Wishlist</string>
-    <string name="action_mystore3">Browse By Genre</string>
     <string name="action_now_playing1">Share</string>
     <string name="action_now_playing2">Add To Playlist</string>
     <string name="action_now_playing3">Details</string>
@@ -34,26 +37,38 @@
     <string name="recently_added_HeaderTextView">Recently Purchased</string>
     <string name="thumbnail_img_content_description">album cover thumbnail</string>
     <string name="search_hint">What are you looking for?</string>
-    <string name="title_activity_my_library">My Library</string>
+
     <string name="section_label1">Artists</string>
     <string name="section_label2">Albums</string>
     <string name="section_label3">All</string>
+
     <string name="artist_img_content_description">artist/album thumbnail</string>
-    <string name="title_activity_artist">Artist</string>
-    <string name="title_activity_album">Album</string>
-    <string name="title_activity_album_from_artist">AlbumFromArtist</string>
     <string name="back_button">Back To Artist</string>
-    <string name="title_activity_play_single">PlaySingle</string>
-    <string name="title_activity_play_album_track">PlayAlbumTrack</string>
     <string name="back_to_album">Back To Album</string>
-    <string name="title_activity_my_store">My Store</string>
     <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
     <string name="media_player_start_time">00:00</string>
     <string name="media_player_end_time">03:48</string>
 
-
-    <string name="MainActivity_label">HOME:</string>
-    <string name="MainActivity_description">Launcher activity.  </string>
+    <string name="MainActivity_label">MAIN ACTIVITY (HOME):</string>
+    <string name="MainActivity_description">This is the launcher activity. The screen layout should
+        be designed in such a way that it incourages the user to explore new music.
+        For example, there could be a search bar that allows the user to search for whatever song or
+        album or artist he has in mind at the moment, searching through his own library and
+        also through the music store.
+        The search bar should implement auto-complete, in order to help the user reach right what he
+        is looking for.
+        If what he is looking for is contained in his library, the suggested search result(s) should
+        point there, to that particular artist, album or song. More precisely, an intent should be
+        sent to either "Artist" or "Album" or "PlaySingle" activity. In case what he is looking for
+        is not contained in his library, then the suggested search result(s) should point to the
+        store, more precisely to a hierarchical child of a possible "MusicStore" activity
+        (which I have not implemented, although it appears in the navigation drawer).
+        The screen could also contain suggestions for new, popular or recommended music to purchase
+        on the store.
+        Suggestions are organized in horizontally scrollable RecycleViews. Again, by clicking on
+        one of these items, an intent is sent to a hierarchical child of the "MusicStore" activity.
+        If you click on one of the "recently purchased" items, an intent is sent to "Album", so
+        that this recently purchased album with all its songs is shown.
+    </string>
 
 </resources>
