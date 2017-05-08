@@ -19,7 +19,7 @@
     <dimen name="headers_padding">16dp</dimen>
     <dimen name="scrollableSections_padding">18dp</dimen>
     <dimen name="searchBar_textView_height">52dp</dimen>
-    <dimen name="small_padding">4dp</dimen>
+    <dimen name="small_padding">6dp</dimen>
 
     <!-- MyLibrary -->
     <dimen name="library_thumb_dim">52dp</dimen>
@@ -48,7 +48,6 @@
     <dimen name="bigger_picture_padding">8dp</dimen>
     <dimen name="equalizer_marginVertical">88dp</dimen>
     <dimen name="equalizer_marginHorizontal">8dp</dimen>
-
 
 
 </resources>

@@ -51,14 +51,14 @@
 
     <string name="MainActivity_label">MAIN ACTIVITY (LAUNCHER):</string>
     <string name="MainActivity_description">
-        A search bar allows you to search right away for whatever song or album or
+        A search bar would allow you to search right away for whatever song, album or
         artist you have in mind at the moment, searching not just through your own library, but
         through the entire music store (not implemented).
         On the main screen also appear suggestions for new, popular or recommended music to be
         found in the store.
         If you scroll down to the last category (\'recently purchased\') and click on one of the
         albums, you can browse through its tracks. This is achieved by sending an intent to the
-        \'Album\' activity.
+        \'Album\' activity (implemented).
     </string>
 
 </resources>

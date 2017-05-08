@@ -24,14 +24,13 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/small_padding"
             android:layout_weight="8"
             android:background="@color/darkerBackground"
-            android:gravity="center_vertical"
             android:hint="@string/search_hint"
             android:imeOptions="actionDone"
             android:inputType="text"
             android:maxLines="1"
-            android:padding="@dimen/small_padding"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <ImageView
