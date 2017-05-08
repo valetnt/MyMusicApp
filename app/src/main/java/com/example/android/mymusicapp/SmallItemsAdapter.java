@@ -5,12 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-/**
- * Adapted from http://hmkcode.com/android-simple-recyclerview-widget-example/
- */
 
 public class SmallItemsAdapter extends RecyclerView.Adapter<SmallItemsAdapter.ViewHolder> {
 
@@ -36,14 +31,9 @@ public class SmallItemsAdapter extends RecyclerView.Adapter<SmallItemsAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
-        // - get data from your itemsData at this position
-        // - replace the contents of the view with that itemsData
-
         viewHolder.txtViewTitle.setText(itemsData[position].getTitle());
         viewHolder.txtViewArtist.setText(itemsData[position].getArtist());
         viewHolder.imgViewIcon.setImageResource(itemsData[position].getImageID());
-
-
     }
 
     // inner class to hold a reference to each item of RecyclerView

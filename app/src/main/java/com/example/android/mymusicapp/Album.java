@@ -27,40 +27,46 @@ public class Album extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
-        if(getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("library")) {
+
+        /*
+           The activity "Album" can be either called from the activity "MyLibrary" or re-called
+           from the activity "PlayAlbumTrack" (via "Back to Album" button).
+        */
+        if (getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("library")) {
             selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
             selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
             artist = getIntent().getStringExtra(EXTRA_ARTIST);
+
         } else if (getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("playalbumtrack")) {
             selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
             selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
             artist = getIntent().getStringExtra(EXTRA_ARTIST);
+
         } else {
             Toast.makeText(this, "ERROR: No Intent Received", Toast.LENGTH_SHORT).show();
             finish();
         }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_album);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView recyclerView_albumSongs = (RecyclerView) findViewById(R.id.album);
+        RecyclerView recyclerView_albumSongs = (RecyclerView) findViewById(R.id.recycler);
         recyclerView_albumSongs.setLayoutManager(new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false));
         recyclerView_albumSongs.setHasFixedSize(true);
         recyclerView_albumSongs.addItemDecoration(new LibraryItemsDividerDecoration(this));
         recyclerView_albumSongs.setItemAnimator(new DefaultItemAnimator());
         recyclerView_albumSongs.setAdapter(new LibraryItemsSongsAdapter(selectedAlbumSongs, null,
-                selectedAlbumTitle, artist, this, "album"));
+                selectedAlbumTitle, artist, "album"));
 
-        ((TextView)findViewById(R.id.info_bar_album_title)).setText(selectedAlbumTitle);
-        ((TextView)findViewById(R.id.info_bar_album_artist)).setText(artist);
-
+        ((TextView) findViewById(R.id.info_bar_title)).setText(selectedAlbumTitle);
+        ((TextView) findViewById(R.id.info_bar_artist)).setText(artist);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -85,12 +91,11 @@ public class Album extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_mylibrary4) {
             return true;
-        } else if ( id == android.R.id.home ) {
+        } else if (id == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 }
 

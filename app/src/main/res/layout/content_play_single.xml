@@ -17,10 +17,10 @@
             android:id="@+id/now_playing_info"
             android:layout_width="match_parent"
             android:layout_height="@dimen/now_playing_info_height"
-            android:layout_marginStart="@dimen/media_player_horizontal_spacing"
-            android:layout_marginLeft="@dimen/media_player_horizontal_spacing"
             android:layout_marginEnd="@dimen/media_player_horizontal_spacing"
+            android:layout_marginLeft="@dimen/media_player_horizontal_spacing"
             android:layout_marginRight="@dimen/media_player_horizontal_spacing"
+            android:layout_marginStart="@dimen/media_player_horizontal_spacing"
             android:layout_marginTop="@dimen/media_player_vertical_spacing"
             android:background="@color/veryDarkGray"
             android:orientation="vertical">
@@ -94,26 +94,26 @@
     <ImageView
         android:layout_width="@dimen/media_buttons_dim"
         android:layout_height="@dimen/media_buttons_dim"
-        android:src="@mipmap/ic_equalizer_black_24dp"
-        android:scaleType="centerCrop"
-        android:padding="@dimen/bigger_picture_padding"
         android:layout_marginLeft="@dimen/equalizer_marginHorizontal"
         android:layout_marginStart="@dimen/equalizer_marginHorizontal"
         android:layout_marginTop="@dimen/equalizer_marginVertical"
-        android:background="@color/darkerBackground"/>
+        android:background="@color/darkerBackground"
+        android:padding="@dimen/bigger_picture_padding"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_equalizer_black_24dp" />
 
     <ImageView
         android:layout_width="@dimen/media_buttons_dim"
         android:layout_height="@dimen/media_buttons_dim"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:src="@mipmap/ic_volume_mute_black_24dp"
-        android:scaleType="centerCrop"
-        android:padding="@dimen/bigger_picture_padding"
-        android:layout_marginRight="@dimen/equalizer_marginHorizontal"
+        android:layout_alignParentRight="true"
         android:layout_marginEnd="@dimen/equalizer_marginHorizontal"
+        android:layout_marginRight="@dimen/equalizer_marginHorizontal"
         android:layout_marginTop="@dimen/equalizer_marginVertical"
-        android:background="@color/darkerBackground"/>
+        android:background="@color/darkerBackground"
+        android:padding="@dimen/bigger_picture_padding"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_volume_mute_black_24dp" />
 
     <LinearLayout
         android:id="@+id/media_buttons"
@@ -174,12 +174,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/media_buttons"
-        android:background="@drawable/now_playing_extra_bar"
-        android:baselineAligned="false"
-        android:layout_marginStart="@dimen/media_player_horizontal_spacing"
-        android:layout_marginLeft="@dimen/media_player_horizontal_spacing"
         android:layout_marginEnd="@dimen/media_player_horizontal_spacing"
-        android:layout_marginRight="@dimen/media_player_horizontal_spacing">
+        android:layout_marginLeft="@dimen/media_player_horizontal_spacing"
+        android:layout_marginRight="@dimen/media_player_horizontal_spacing"
+        android:layout_marginStart="@dimen/media_player_horizontal_spacing"
+        android:background="@drawable/now_playing_extra_bar"
+        android:baselineAligned="false">
 
         <ImageView
             android:id="@+id/shuffle_icon"

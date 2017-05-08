@@ -57,6 +57,7 @@ public class MyLibrary extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_library);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -124,7 +125,7 @@ public class MyLibrary extends AppCompatActivity
             return true;
         } else if (id == R.id.action_mylibrary4) {
             return true;
-        }else if ( id == android.R.id.home ) {
+        } else if (id == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         }
 
@@ -167,17 +168,20 @@ public class MyLibrary extends AppCompatActivity
 
                     View rootView1 = inflater.inflate(R.layout.fragment_my_library, container, false);
 
-                    ArrayList<String> ArtistsList = new ArrayList<>();
+                    // Create a list of all the artists in the library
+                    ArrayList<String> artistList = new ArrayList<>();
                     for (int i = 0; i < libraryItems.length; i++) {
-                        ArtistsList.add(libraryItems[i].getArtistName());
+                        artistList.add(libraryItems[i].getArtistName());
                     }
 
+                    // Discard repetitions
                     Set<String> hsArtistsList = new HashSet<>();
-                    hsArtistsList.addAll(ArtistsList);
-                    ArtistsList.clear();
-                    ArtistsList.addAll(hsArtistsList);
+                    hsArtistsList.addAll(artistList);
+                    artistList.clear();
+                    artistList.addAll(hsArtistsList);
 
-                    Collections.sort(ArtistsList, new Comparator<String>() {
+                    // Sort by alphabetical order
+                    Collections.sort(artistList, new Comparator<String>() {
                         @Override
                         public int compare(String o1, String o2) {
                             return o1.compareToIgnoreCase(o2);
@@ -188,8 +192,7 @@ public class MyLibrary extends AppCompatActivity
                             .findViewById(R.id.library_list_item);
                     recyclerView_artists.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
-                    recyclerView_artists.setAdapter(new LibraryItemsArtistsAdapter
-                            (ArtistsList, getContext()));
+                    recyclerView_artists.setAdapter(new LibraryItemsArtistsAdapter(artistList));
                     recyclerView_artists.setHasFixedSize(true);
                     recyclerView_artists.addItemDecoration(new LibraryItemsDividerDecoration
                             (getContext()));
@@ -201,16 +204,19 @@ public class MyLibrary extends AppCompatActivity
 
                     View rootView2 = inflater.inflate(R.layout.fragment_my_library, container, false);
 
+                    // Create a list of all the albums in the library
                     ArrayList<String> AlbumsList = new ArrayList<>();
                     for (int i = 0; i < libraryItems.length; i++) {
                         AlbumsList.add(libraryItems[i].getAlbumTitle());
                     }
 
+                    // Discard repetitions
                     Set<String> hsAlbumsList = new HashSet<>();
                     hsAlbumsList.addAll(AlbumsList);
                     AlbumsList.clear();
                     AlbumsList.addAll(hsAlbumsList);
 
+                    // Sort by alphabetical order
                     Collections.sort(AlbumsList, new Comparator<String>() {
                         @Override
                         public int compare(String o1, String o2) {
@@ -223,7 +229,7 @@ public class MyLibrary extends AppCompatActivity
                     recyclerView_albums.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
                     recyclerView_albums.setAdapter(new LibraryItemsAlbumsAdapter
-                            (AlbumsList, getContext(), "library"));
+                            (AlbumsList, "library"));
                     recyclerView_albums.setHasFixedSize(true);
                     recyclerView_albums.addItemDecoration(new LibraryItemsDividerDecoration
                             (getContext()));
@@ -235,16 +241,19 @@ public class MyLibrary extends AppCompatActivity
 
                     View rootView3 = inflater.inflate(R.layout.fragment_my_library, container, false);
 
+                    // Create a list of all the songs in the library
                     ArrayList<String> SongsList = new ArrayList<>();
                     for (int i = 0; i < libraryItems.length; i++) {
                         SongsList.add(libraryItems[i].getSongTitle());
                     }
 
+                    // Discard repetitions
                     Set<String> hsSongsList = new HashSet<>();
                     hsSongsList.addAll(SongsList);
                     SongsList.clear();
                     SongsList.addAll(hsSongsList);
 
+                    // Sort by alphabetical order
                     Collections.sort(SongsList, new Comparator<String>() {
                         @Override
                         public int compare(String o1, String o2) {
@@ -257,7 +266,7 @@ public class MyLibrary extends AppCompatActivity
                     recyclerView_Songs.setLayoutManager(new LinearLayoutManager(getContext(),
                             LinearLayoutManager.VERTICAL, false));
                     recyclerView_Songs.setAdapter(new LibraryItemsSongsAdapter(SongsList, null,
-                            null, null, getContext(), "library"));
+                            null, null, "library"));
                     recyclerView_Songs.setHasFixedSize(true);
                     recyclerView_Songs.addItemDecoration(new LibraryItemsDividerDecoration
                             (getContext()));
@@ -265,7 +274,8 @@ public class MyLibrary extends AppCompatActivity
 
                     return rootView3;
 
-                default: return null;
+                default:
+                    return null;
             }
         }
     }
@@ -308,6 +318,7 @@ public class MyLibrary extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.

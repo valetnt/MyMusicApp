@@ -2,9 +2,7 @@ package com.example.android.mymusicapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,17 +23,16 @@ import static com.example.android.mymusicapp.MainActivity.libraryItems;
 public class LibraryItemsArtistsAdapter
         extends RecyclerView.Adapter<LibraryItemsArtistsAdapter.ViewHolder> {
     
-    private ArrayList<String> ArtistsList;
-    private Context context;
+    private ArrayList<String> artistList;
 
-    public LibraryItemsArtistsAdapter(ArrayList<String> ArtistsList, Context context) {
-        this.ArtistsList = ArtistsList;
-        this.context = context;
+    public LibraryItemsArtistsAdapter(ArrayList<String> artistList) {
+        this.artistList = artistList;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public LibraryItemsArtistsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public LibraryItemsArtistsAdapter.ViewHolder onCreateViewHolder (ViewGroup parent,
+                                                                     int viewType) {
         // create a new view
         View itemLayoutView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.library_list_items, null);
@@ -49,16 +46,21 @@ public class LibraryItemsArtistsAdapter
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int position) {
 
-        viewHolder.txtViewArtist.setText(ArtistsList.get(position));
+        // Set artist name for the item at the current position
+        viewHolder.txtViewArtist.setText(artistList.get(position));
 
+        /*
+           Set thumbnail for the item at the current position: find the first library item
+           that matches the artist name and set its image as the thumbnail. If method
+           getImageForArtist returns -1, it means that there is no image available.
+        */
         int i = 0;
-
         while (i < libraryItems.length) {
 
-            if (libraryItems[i].getImageForArtist(ArtistsList.get(position)) == 0) {
+            if (libraryItems[i].getImageForArtist(artistList.get(position)) == 0) {
                 viewHolder.imgViewIcon.setImageResource(R.drawable.music_note);
                 i++;
-            } else if (libraryItems[i].getImageForArtist(ArtistsList.get(position)) == -1) {
+            } else if (libraryItems[i].getImageForArtist(artistList.get(position)) == -1) {
                 viewHolder.imgViewIcon.setImageResource(R.drawable.music_note);
                 break;
             }
@@ -68,25 +70,41 @@ public class LibraryItemsArtistsAdapter
             }
         }
 
-        final ArrayList<String> albumList = new ArrayList<>();
-        final int numberOfItems = libraryItems.length;
-
+        /*
+           When one of the items (artists) is clicked, an intent is sent to the activity "Artist".
+           We need to attach two extras to the intent:
+           EXTRA_ARTIST (the clicked item),
+           EXTRA_ALBUMLIST (all the albums by the clicked artist).
+         */
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            ArrayList<String> albumList = new ArrayList<>();
 
             @Override
             public void onClick (View view){
-                for (int j = 0; j < numberOfItems; j++) {
 
-                    if(libraryItems[j].getArtistName().equals(String.valueOf(viewHolder.txtViewArtist.getText()))) {
+                /*
+                   Determine the list of albums for the clicked artist
+                   scanning through the library items looking for an artist match.
+                   Every time there is a match, call getAlbumTitle() on the library item
+                   and add the output string to the ArrayList<String> "albumList".
+                */
+
+                for (int j = 0; j < libraryItems.length; j++) {
+
+                    if(libraryItems[j].getArtistName().equals
+                            (artistList.get(viewHolder.getAdapterPosition()))) {
                         albumList.add(libraryItems[j].getAlbumTitle());
                     }
                 }
 
-                Set<String> hsSongsList = new HashSet<>();
-                hsSongsList.addAll(albumList);
+                // Avoid repetitions in the album list
+                Set<String> hsAlbumList = new HashSet<>();
+                hsAlbumList.addAll(albumList);
                 albumList.clear();
-                albumList.addAll(hsSongsList);
+                albumList.addAll(hsAlbumList);
 
+                // Sort in alphabetical order
                 Collections.sort(albumList, new Comparator<String>() {
                     @Override
                     public int compare(String o1, String o2) {
@@ -95,10 +113,11 @@ public class LibraryItemsArtistsAdapter
                 });
 
                 Intent browseArtistAlbums = new Intent(view.getContext(), Artist.class);
-                browseArtistAlbums.putExtra(EXTRA_ARTIST, String.valueOf(viewHolder.txtViewArtist.getText()));
+                browseArtistAlbums.putExtra(EXTRA_ARTIST,
+                        artistList.get(viewHolder.getAdapterPosition()));
                 browseArtistAlbums.putExtra(EXTRA_ALBUMLIST, albumList);
                 browseArtistAlbums.putExtra(EXTRA_WHOSCALLING,"library");
-                context.startActivity(browseArtistAlbums);
+                view.getContext().startActivity(browseArtistAlbums);
             }
         });
     }
@@ -106,7 +125,7 @@ public class LibraryItemsArtistsAdapter
     // Return the size of your libraryItems (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return ArtistsList.size();
+        return artistList.size();
     }
 
     // inner class to hold a reference to each item of RecyclerView
@@ -117,7 +136,9 @@ public class LibraryItemsArtistsAdapter
 
         private ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
-            txtViewArtist = (TextView) itemLayoutView.findViewById(R.id.library_field);
+            // Artist name
+            txtViewArtist = (TextView) itemLayoutView.findViewById(R.id.library_txtView);
+            // Artist thumbnail
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.library_thumb);
         }
     }

@@ -4,19 +4,21 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
-    <dimen name="scrollBarSize">2dp</dimen>
     <dimen name="nav_header_avatar_img_dim">72dp</dimen>
+    <dimen name="scrollBarSize">2dp</dimen>
     <dimen name="scrollView_margin">16dp</dimen>
 
-    <!-- Home -->
+    <!-- MyStore -->
     <dimen name="small_item_container_padding">8dp</dimen>
     <dimen name="small_item_padding">4dp</dimen>
     <dimen name="small_item_dim">140dp</dimen>
     <dimen name="thumbnails_dim">72dp</dimen>
     <dimen name="headers_padding">16dp</dimen>
     <dimen name="scrollableSections_padding">18dp</dimen>
+    <dimen name="searchBar_textView_height">52dp</dimen>
+    <dimen name="small_padding">4dp</dimen>
 
-    <!-- Library -->
+    <!-- MyLibrary -->
     <dimen name="library_thumb_dim">52dp</dimen>
     <dimen name="library_thumb_margin">8dp</dimen>
     <dimen name="library_textView_width">200dp</dimen>
@@ -24,8 +26,7 @@
     <!-- Artist, Album, AlbumFromArtist, Play -->
     <dimen name="album_back_button_paddingTop">16dp</dimen>
     <dimen name="album_back_button_height">52dp</dimen>
-    <dimen name="info_bar_vertical_margin">12dp</dimen>
-    <dimen name="info_bar_subtitle_vertical_margin">4dp</dimen>
+    <dimen name="info_bar_vertical_margin">4dp</dimen>
 
     <!-- Play -->
     <dimen name="media_buttons_dim">48dp</dimen>
@@ -42,11 +43,9 @@
     <dimen name="now_playing_vertical_margin">100dp</dimen>
     <dimen name="picture_padding">4dp</dimen>
     <dimen name="bigger_picture_padding">8dp</dimen>
-
     <dimen name="equalizer_marginVertical">88dp</dimen>
     <dimen name="equalizer_marginHorizontal">8dp</dimen>
 
-    <dimen name="searchBar_textView_height">52dp</dimen>
-    <dimen name="small_padding">4dp</dimen>
+
 
 </resources>

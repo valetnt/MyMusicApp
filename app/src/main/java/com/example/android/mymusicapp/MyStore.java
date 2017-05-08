@@ -22,6 +22,7 @@ public class MyStore extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_store);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -47,7 +48,7 @@ public class MyStore extends AppCompatActivity
         SmallItemsData suggestedItems[] = {
                 new SmallItemsData("Shields", "Grizzly Bear", R.drawable.grizzly_bear_shields),
                 new SmallItemsData("Born To Die", "Lana Del Rey", R.drawable.lana_del_rey_born_to_die),
-                new SmallItemsData("Aladdin Sane","David Bowie",R.drawable.david_bowie_aladdin_sane),
+                new SmallItemsData("Aladdin Sane", "David Bowie", R.drawable.david_bowie_aladdin_sane),
                 new SmallItemsData("Veckatimest", "Grizzly Bear", R.drawable.grizzly_bear_veckatimest),
                 new SmallItemsData("Come Away With Me", "Norah Jones", R.drawable.norah_jones_come_away_with_me),
                 new SmallItemsData("St. Vincent", "St. Vincent", R.drawable.st_vincent_self_titled)
@@ -58,8 +59,8 @@ public class MyStore extends AppCompatActivity
                 new SmallItemsData("25", "Adele", R.drawable.adele_25),
                 new SmallItemsData("Divide", "Ed Sheeran", R.drawable.ed_sheeran_divide),
                 new SmallItemsData("Born To Die", "Lana Del Rey", R.drawable.lana_del_rey_born_to_die),
-                new SmallItemsData("Views","Drake",R.drawable.drake_views),
-                new SmallItemsData("Dangerous Woman","Ariana Grande",R.drawable.ariana_grande_dangerous_woman)
+                new SmallItemsData("Views", "Drake", R.drawable.drake_views),
+                new SmallItemsData("Dangerous Woman", "Ariana Grande", R.drawable.ariana_grande_dangerous_woman)
         };
 
         RecyclerView recyclerView_recentlyAddedItems = (RecyclerView) findViewById(R.id.recently_added);
@@ -123,7 +124,7 @@ public class MyStore extends AppCompatActivity
             return true;
         } else if (id == R.id.action_mystore3) {
             return true;
-        } else if ( id == android.R.id.home ) {
+        } else if (id == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         }
 

@@ -27,8 +27,6 @@ public class PlayAlbumTrack extends AppCompatActivity {
     private ArrayList<String> selectedAlbumSongs;
     private String artist;
     private ArrayList<String> albumListForArtist;
-    private String songTitle;
-    private int albumCoverID;
     private String senderActivity;
 
     @Override
@@ -40,12 +38,15 @@ public class PlayAlbumTrack extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        String songTitle;
+        int albumCoverID;
+
         selectedAlbumTitle = getIntent().getStringExtra(EXTRA_ALBUM);
         selectedAlbumSongs = getIntent().getStringArrayListExtra(EXTRA_SONGLIST);
         artist = getIntent().getStringExtra(EXTRA_ARTIST);
         albumListForArtist = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
         songTitle = getIntent().getStringExtra(EXTRA_SONG);
-        albumCoverID = getIntent().getIntExtra(EXTRA_COVER,R.drawable.music_note);
+        albumCoverID = getIntent().getIntExtra(EXTRA_COVER, R.drawable.music_note);
         senderActivity = getIntent().getStringExtra(EXTRA_WHOSCALLING);
 
         findViewById(R.id.back_to_album).setOnClickListener(new View.OnClickListener() {
@@ -57,7 +58,7 @@ public class PlayAlbumTrack extends AppCompatActivity {
                     goBackToAlbum.putExtra(EXTRA_ALBUM, selectedAlbumTitle);
                     goBackToAlbum.putExtra(EXTRA_SONGLIST, selectedAlbumSongs);
                     goBackToAlbum.putExtra(EXTRA_ARTIST, artist);
-                    goBackToAlbum.putExtra(EXTRA_WHOSCALLING,"playalbumtrack");
+                    goBackToAlbum.putExtra(EXTRA_WHOSCALLING, "playalbumtrack");
                     startActivity(goBackToAlbum);
 
                 } else if (senderActivity.equals("artistalbum")) {
@@ -65,11 +66,10 @@ public class PlayAlbumTrack extends AppCompatActivity {
                     goBackToAlbumFromArtist.putExtra(EXTRA_ALBUM, selectedAlbumTitle);
                     goBackToAlbumFromArtist.putExtra(EXTRA_SONGLIST, selectedAlbumSongs);
                     goBackToAlbumFromArtist.putExtra(EXTRA_ARTIST, artist);
-                    goBackToAlbumFromArtist.putExtra(EXTRA_ALBUMLIST,albumListForArtist);
-                    goBackToAlbumFromArtist.putExtra(EXTRA_WHOSCALLING,"playalbumtrack");
+                    goBackToAlbumFromArtist.putExtra(EXTRA_ALBUMLIST, albumListForArtist);
+                    goBackToAlbumFromArtist.putExtra(EXTRA_WHOSCALLING, "playalbumtrack");
                     startActivity(goBackToAlbumFromArtist);
                 }
-
             }
         });
 
@@ -85,7 +85,7 @@ public class PlayAlbumTrack extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(toggle.getVisibility()==View.VISIBLE){
+                if (toggle.getVisibility() == View.VISIBLE) {
                     toggle.setVisibility(View.INVISIBLE);
                 } else {
                     toggle.setVisibility(View.VISIBLE);
@@ -119,7 +119,7 @@ public class PlayAlbumTrack extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_now_playing4) {
             return true;
-        } else if ( id == android.R.id.home ) {
+        } else if (id == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         }
 

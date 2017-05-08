@@ -8,7 +8,7 @@
     tools:context="com.example.android.mymusicapp.PlayAlbumTrack"
     tools:showIn="@layout/activity_play_album_track">
 
-    <include layout="@layout/content_play_single"/>
+    <include layout="@layout/content_play_single" />
 
     <Button
         android:id="@+id/back_to_album"
@@ -16,12 +16,11 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/album_back_button_height"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="@dimen/media_player_horizontal_spacing"
-        android:layout_marginEnd="@dimen/media_player_horizontal_spacing"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/media_player_horizontal_spacing"
+        android:layout_marginRight="@dimen/media_player_horizontal_spacing"
         android:text="@string/back_to_album" />
-
 
 </RelativeLayout>

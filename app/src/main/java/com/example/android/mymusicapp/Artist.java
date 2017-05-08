@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import java.util.ArrayList;
 
 import static com.example.android.mymusicapp.MainActivity.EXTRA_ALBUMLIST;
@@ -29,34 +28,39 @@ public class Artist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_artist);
 
-        if( getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("library") ) {
+        /*
+           The activity "Artist" can be either called from the activity "MyLibrary" or re-called
+           from the activity "AlbumFromArtist" (via "Back to Artist" button).
+        */
+        if (getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("library")) {
             selectedArtistName = getIntent().getStringExtra(EXTRA_ARTIST);
             selectedArtistAlbums = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
-        } else if ( getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("artistalbum") ) {
+
+        } else if (getIntent().getStringExtra(EXTRA_WHOSCALLING).equals("artistalbum")) {
             selectedArtistName = getIntent().getStringExtra(EXTRA_ARTIST);
             selectedArtistAlbums = getIntent().getStringArrayListExtra(EXTRA_ALBUMLIST);
+
         } else {
             Toast.makeText(this, "ERROR: No Intent Received", Toast.LENGTH_SHORT).show();
             finish();
         }
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.artist_toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView recyclerView_artistAlbums = (RecyclerView) findViewById(R.id.artist);
+        RecyclerView recyclerView_artistAlbums = (RecyclerView) findViewById(R.id.recycler);
         recyclerView_artistAlbums.setLayoutManager(new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false));
         recyclerView_artistAlbums.setHasFixedSize(true);
         recyclerView_artistAlbums.addItemDecoration(new LibraryItemsDividerDecoration(this));
         recyclerView_artistAlbums.setItemAnimator(new DefaultItemAnimator());
-        recyclerView_artistAlbums.setAdapter(new LibraryItemsAlbumsAdapter(selectedArtistAlbums, this, "artistalbum"));
+        recyclerView_artistAlbums.setAdapter(new LibraryItemsAlbumsAdapter(selectedArtistAlbums,
+                "artist"));
 
-        ((TextView)findViewById(R.id.info_bar_artist)).setText(selectedArtistName);
+        ((TextView) findViewById(R.id.info_bar_artist)).setText(selectedArtistName);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,11 +85,10 @@ public class Artist extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_mylibrary4) {
             return true;
-        } else if ( id == android.R.id.home ) {
+        } else if (id == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 }

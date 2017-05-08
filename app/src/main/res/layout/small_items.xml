@@ -22,10 +22,10 @@
             android:id="@+id/album_artist"
             android:layout_width="@dimen/small_item_dim"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
             android:layout_gravity="center"
+            android:ellipsize="end"
             android:gravity="center"
+            android:maxLines="1"
             android:padding="@dimen/small_item_padding"
             android:textAppearance="@style/SmallItemsArtist" />
 
@@ -33,10 +33,10 @@
             android:id="@+id/album_title"
             android:layout_width="@dimen/small_item_dim"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
             android:layout_gravity="center"
+            android:ellipsize="end"
             android:gravity="center"
+            android:maxLines="1"
             android:textAppearance="@style/SmallItemsAlbumTitle" />
 
     </LinearLayout>
