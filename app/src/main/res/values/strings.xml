@@ -51,14 +51,58 @@
 
     <string name="MainActivity_label">MAIN ACTIVITY (LAUNCHER):</string>
     <string name="MainActivity_description">
-        A search bar would allow you to search right away for whatever song, album or
+        A search bar allows you to search right away for whatever song, album or
         artist you have in mind at the moment, searching not just through your own library, but
         through the entire music store (not implemented).
         On the main screen also appear suggestions for new, popular or recommended music to be
-        found in the store.
-        If you scroll down to the last category (\'recently purchased\') and click on one of the
-        albums, you can browse through its tracks. This is achieved by sending an intent to the
-        \'Album\' activity (implemented).
+        found in the store. Clicking on any of the suggested items brings you into
+        a sub-activity of the MUSIC STORE parent activity (not implemented).
+        If you click one of the items in the category \'Recently Purchased\',
+        you can browse the album tracks (implemented).
+    </string>
+
+    <string name="MyLibrary_label">\'MY LIBRARY\' ACTIVITY:</string>
+    <string name="MyLibrary_description">
+        This tabbed activity allows you to browse the music library by artist, album
+        or song.
+        If you click a particular artist, you see all the albums by that artist
+        contained in your library.
+        If you click a particular album, you see all the songs contained in that album.
+        If you click a particular song, a screen containing the song details is opened.
+    </string>
+
+    <string name="Artist_label">\'ARTIST\' ACTIVITY:</string>
+    <string name="Artist_description">
+        It shows the list of albums by the selected artist contained in your library.
+        If you click any of the albums, you can browse the songs contained in that album.
+    </string>
+
+    <string name="Album_label">\'ALBUM\' ACTIVITY:</string>
+    <string name="Album_description">
+        It shows the list of songs contained in the selected album.
+        Clicking any of the songs starts the activity PLAY SINGLE.
+    </string>
+
+    <string name="AlbumFromArtist_label">\'ALBUM FROM ARTIST\' ACTIVITY:</string>
+    <string name="AlbumFromArtist_description">
+        It shows the list of songs contained in the selected album.
+        Clicking any of the songs starts the activity PLAY ALBUM TRACK.
+        At the bottom of the screen, a button brings you back to the
+        ARTIST screen from which you came.
+    </string>
+
+    <string name="PlaySingle_label">\'PLAY SINGLE\' ACTIVITY:</string>
+    <string name="PlaySingle_description">
+        It shows the song details and has an embedded media player (not implemented).
+        Clicking the album cover, extra media-player controls are provided in a toggle view.
+    </string>
+
+    <string name="PlayAlbumTrack_label">\'PLAY ALBUM TRACK\' ACTIVITY:</string>
+    <string name="PlayAlbumTrack_description">
+        It shows the song details and has an embedded media player (not implemented).
+        Clicking the album cover, extra media-player controls are provided in a toggle view.
+        At the bottom of the screen, a button brings you back to the
+        ALBUM or ALBUM FROM ARTIST screen from which you came.
     </string>
 
 </resources>

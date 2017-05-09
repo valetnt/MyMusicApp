@@ -9,6 +9,24 @@
     tools:context="com.example.android.mymusicapp.AlbumFromArtist">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightYellow"
+        android:gravity="center"
+        android:padding="@dimen/small_padding"
+        android:text="@string/AlbumFromArtist_label"
+        android:textAppearance="@android:style/TextAppearance.Medium" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightestYellow"
+        android:gravity="center"
+        android:padding="@dimen/small_padding"
+        android:text="@string/AlbumFromArtist_description"
+        android:textAppearance="@android:style/TextAppearance.Small" />
+
+    <TextView
         android:id="@+id/info_bar_title"
         style="@style/info_bar"
         android:layout_width="match_parent"

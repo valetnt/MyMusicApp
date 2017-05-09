@@ -9,12 +9,12 @@
     <dimen name="scrollView_margin">16dp</dimen>
 
     <!-- MainActivity -->
-    <dimen name="small_item_container_width">150dp</dimen>
-    <dimen name="small_item_container_height">170dp</dimen>
-    <dimen name="small_item_container_padding">20dp</dimen>
+    <dimen name="small_item_container_width">130dp</dimen>
+    <dimen name="small_item_container_height">150dp</dimen>
+    <dimen name="small_item_container_padding">12dp</dimen>
     <dimen name="small_item_txt_padding">4dp</dimen>
-    <dimen name="small_item_width">120dp</dimen>
-    <dimen name="small_item_height">24dp</dimen>
+    <dimen name="small_item_txt_width">120dp</dimen>
+    <dimen name="small_item_txt_height">24dp</dimen>
     <dimen name="thumbnails_dim">72dp</dimen>
     <dimen name="headers_padding">16dp</dimen>
     <dimen name="scrollableSections_padding">18dp</dimen>

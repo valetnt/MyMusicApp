@@ -9,6 +9,24 @@
     tools:context="com.example.android.mymusicapp.Album">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightYellow"
+        android:gravity="center"
+        android:padding="@dimen/small_padding"
+        android:text="@string/Album_label"
+        android:textAppearance="@android:style/TextAppearance.Medium" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightestYellow"
+        android:gravity="center"
+        android:padding="@dimen/small_padding"
+        android:text="@string/Album_description"
+        android:textAppearance="@android:style/TextAppearance.Small" />
+
+    <TextView
         android:id="@+id/info_bar_title"
         style="@style/info_bar"
         android:layout_width="match_parent"
@@ -40,6 +58,5 @@
         android:paddingRight="@dimen/activity_horizontal_margin">
 
     </android.support.v7.widget.RecyclerView>
-
 
 </LinearLayout>

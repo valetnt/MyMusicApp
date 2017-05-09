@@ -22,6 +22,13 @@ public class PlaySingle extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_single);
+
+        TextView activity_label_txtView = (TextView) findViewById(R.id.label);
+        activity_label_txtView.setText(getText(R.string.PlaySingle_label));
+
+        TextView activity_description_txtView = (TextView) findViewById(R.id.description);
+        activity_description_txtView.setText(getText(R.string.PlaySingle_description));
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

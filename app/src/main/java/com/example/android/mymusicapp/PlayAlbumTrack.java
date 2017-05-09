@@ -33,8 +33,15 @@ public class PlayAlbumTrack extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_album_track);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        TextView activity_label_txtView = (TextView) findViewById(R.id.label);
+        activity_label_txtView.setText(getText(R.string.PlayAlbumTrack_label));
+
+        TextView activity_description_txtView = (TextView) findViewById(R.id.description);
+        activity_description_txtView.setText(getText(R.string.PlayAlbumTrack_description));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
